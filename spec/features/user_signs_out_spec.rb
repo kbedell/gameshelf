@@ -1,9 +1,10 @@
 require "rails_helper"
 
 feature "User Signs Out" do
-  scenario "User sucessfuly signs out" do
-    user = FactoryGirl.create(:user)
-    visit festivals_path
+  let!(:user) { FactoryGirl.build(:user) }
+
+  scenario "User sucessfully signs out" do
+    visit usersgames_path
     click_link "Sign In"
     fill_in "Email", with: user.email
     fill_in "user_password", with: user.password
@@ -17,8 +18,8 @@ feature "User Signs Out" do
     expect(page).to have_content("Signed out successfully.")
   end
 
-  scenario "User can not sign out unless already signed in" do
-    visit festivals_path
+  scenario "User cannot sign out unless already signed in" do
+    visit usersgames_path
 
     expect(page).to_not have_content("Sign Out")
   end

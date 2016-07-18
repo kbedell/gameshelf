@@ -1,9 +1,10 @@
 require "rails_helper"
 
 feature "User Signs In" do
+  let!(:user) { FactoryGirl.build(:user) }
+
   scenario "User provides valid information" do
-    user = FactoryGirl.create(:user)
-    visit festivals_path
+    visit usersgames_path
     click_link "Sign In"
     fill_in "Email", with: user.email
     fill_in "user_password", with: user.password
@@ -13,8 +14,8 @@ feature "User Signs In" do
     expect(page).to have_content("You have signed in!")
   end
 
-  scenario "user submits blank sign in form" do
-    visit festivals_path
+  scenario "user does not fill in sign in form" do
+    visit usersgames_path
     click_link "Sign In"
     click_button "Sign In"
 
@@ -23,9 +24,8 @@ feature "User Signs In" do
 
   end
 
-  scenario "user name and password don't match" do
-    user = FactoryGirl.create(:user)
-    visit festivals_path
+  scenario "Users email, and name don't match" do
+    visit usersgames_path
     click_link "Sign In"
     fill_in "Email", with: user.email
     fill_in "user_password", with: "any password"
@@ -36,8 +36,8 @@ feature "User Signs In" do
 
   end
 
-  scenario "user has not registered" do
-    visit festivals_path
+  scenario "User has not signed up" do
+    visit usersgames_path
     click_link "Sign In"
     fill_in "Email", with: "randomuser@mail.com"
     fill_in "user_password", with: "randompassword"
