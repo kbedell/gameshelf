@@ -1,4 +1,5 @@
 class Game < ActiveRecord::Base
+  has_many :usersgames
   has_many :users, through: :usersgames
 
   validates :name, presence: true
