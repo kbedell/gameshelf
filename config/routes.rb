@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :usersgames, only: [:index, :create, :destroy]
   resources :users, only: [:destroy]
 
-  root "usersgames#index"
+  root 'usersgames#index'
 end
