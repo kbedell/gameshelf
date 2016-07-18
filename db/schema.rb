@@ -14,20 +14,20 @@
 ActiveRecord::Schema.define(version: 20160718123657) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "games", force: :cascade do |t|
-    t.string  "name",         null: false
-    t.string  "genre",        null: false
-    t.string  "designer",     null: false
-    t.text    "description",  null: false
-    t.integer "max_players",  null: false
-    t.integer "min_players",  null: false
-    t.integer "max_playtime", null: false
-    t.integer "min_playtime", null: false
-    t.integer "year",         null: false
+  create_table 'games', force: :cascade do |t|
+    t.string  'name',         null: false
+    t.string  'genre',        null: false
+    t.string  'designer',     null: false
+    t.text    'description',  null: false
+    t.integer 'max_players',  null: false
+    t.integer 'min_players',  null: false
+    t.integer 'max_playtime', null: false
+    t.integer 'min_playtime', null: false
+    t.integer 'year',         null: false
   end
 
-  add_index "games", ["name", "year"], name: "index_games_on_name_and_year", unique: true, using: :btree
+  add_index 'games', ['name', 'year'], name: 'index_games_on_name_and_year', unique: true, using: :btree
 
 end
