@@ -1,9 +1,8 @@
-require "rails_helper"
+require 'rails_helper'
 
 describe User, type: :model do
   describe "validation" do
-    it { should have_many :reviews }
-    it { should have_many :festivals }
+    it { should have_many(:games).through(:usersgames) }
 
     it { should have_valid(:first_name).when("John", "Sally") }
     it { should_not have_valid(:first_name).when("", nil) }
@@ -15,7 +14,6 @@ describe User, type: :model do
     it { should_not have_valid(:email).when(nil, "", "urser", "usersba.com") }
 
     subject { FactoryGirl.build(:user) }
-    it { should validate_uniqueness_of(:username) }
     it { should validate_uniqueness_of(:email).case_insensitive }
   end
 
