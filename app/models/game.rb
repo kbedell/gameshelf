@@ -11,5 +11,5 @@ class Game < ActiveRecord::Base
   validates :max_playtime, presence: true, numericality: { only_integer: true }
   validates :min_playtime, presence: true, numericality: { only_integer: true }
   validates :year, presence: true, numericality: { only_integer: true }
-  validates :name, uniqueness: { scope: :year, message: "has already been taken" }
+  validates :name, uniqueness: { scope: :year, message: 'has already been taken' }
 end
