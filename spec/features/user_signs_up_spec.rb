@@ -23,13 +23,13 @@ feature 'User Signs Up' do
     click_link 'Sign Up'
     click_button 'sign_up'
 
-    expect(page).to have_content('First name can't be blank')
-    expect(page).to have_content('Last name can't be blank')
-    expect(page).to have_content('Email can't be blank')
-    expect(page).to have_content('Password can't be blank')
+    expect(page).to have_content('First name can\'t be blank')
+    expect(page).to have_content('Last name can\'t be blank')
+    expect(page).to have_content('Email can\'t be blank')
+    expect(page).to have_content('Password can\'t be blank')
   end
 
-  scenario 'User's passwords do not match' do
+  scenario 'User\'s passwords do not match' do
     visit usersgames_path
     click_link 'Sign Up'
     fill_in 'First name', with: user.first_name
@@ -39,7 +39,7 @@ feature 'User Signs Up' do
     fill_in 'user_password_confirmation', with: 'masterOfCoin'
     click_button 'sign_up'
 
-    expect(page).to have_content('Password confirmation doesn't match')
+    expect(page).to have_content('Password confirmation doesn\'t match')
   end
 
   scenario 'User already has an account or email is in use' do

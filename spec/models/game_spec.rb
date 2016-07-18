@@ -15,8 +15,8 @@ describe Game, type: :model do
 
     it { should have_valid(:description).when(
       'Begin a quest to settle the island of Catan! Guide your brave settlers to victory by using clever trading and shrewd development.',
-      'In Tokaido, each player is a traveler crossing the \'East sea road\', one of the most magnificent roads of Japan.'
-      ) }
+      'In Tokaido, each player is a traveler crossing the \'East sea road\', one of the most magnificent roads of Japan.')
+       }
     it { should_not have_valid(:description).when('', nil) }
 
     it { should have_valid(:max_players).when('4', '5') }
