@@ -2,7 +2,6 @@ require 'rails_helper'
 
 feature 'User Signs Up' do
   let!(:user) { FactoryGirl.build(:user) }
-  let!(:user2) { FactoryGirl.create(:user) }
 
   scenario 'User enters valid information' do
     visit usersgames_path
@@ -43,6 +42,8 @@ feature 'User Signs Up' do
   end
 
   scenario 'User already has an account or email is in use' do
+    user2 = FactoryGirl.create(:user)
+
     visit usersgames_path
     click_link 'Sign Up'
     fill_in 'First name', with: user2.first_name
@@ -52,6 +53,6 @@ feature 'User Signs Up' do
     fill_in 'user_password_confirmation', with: user2.password_confirmation
     click_button 'sign_up'
 
-    expect(page).to have_content('has already been taken')
+    expect(page).to have_content('Email has already been taken')
   end
 end
