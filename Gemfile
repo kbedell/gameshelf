@@ -10,6 +10,7 @@ gem 'quiet_assets'
 gem 'devise'
 gem 'httparty'
 gem 'nokogiri'
+gem 'vcr'
 
 group :development, :test do
   gem 'capybara'
@@ -20,6 +21,7 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'dotenv-rails'
   gem 'capybara-webkit'
+  gem 'selenium-webdriver'
 end
 
 group :test do

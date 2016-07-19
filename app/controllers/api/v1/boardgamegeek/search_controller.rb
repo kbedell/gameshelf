@@ -8,18 +8,7 @@ class Api::V1::Boardgamegeek::SearchController < ApiController
   before_action :authenticate_user!
 
   def create
-    games = []
-    page = Nokogiri::HTML(open('https://www.boardgamegeek.com/xmlapi/search?search=' + params['games']['name']))
-
-    boardgames = page.css('boardgame')
-
-    boardgames.each do |game|
-      game = {name: game.css('name').text,
-              year: game.css('yearpublished').text,
-              id: game['objectid']
-            }
-      games << game
-    end
+    games = BGGGame.search_games(params['games']['name'])
 
     render json: {games: games}, status: :ok
   end

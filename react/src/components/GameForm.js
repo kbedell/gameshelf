@@ -3,7 +3,8 @@ import React from 'react';
 const GameForm = props => {
   return (
     <form onSubmit={props.handleSearchClick}>
-      <input className="GameName"
+      <input className="game-name"
+        id = "game-name"
         placeholder="Game Name"
         type="text"
         value={props.name}

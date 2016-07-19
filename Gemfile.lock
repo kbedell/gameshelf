@@ -50,6 +50,8 @@ GEM
     capybara-webkit (1.11.1)
       capybara (>= 2.3.0, < 2.8.0)
       json
+    childprocess (0.5.9)
+      ffi (~> 1.0, >= 1.0.11)
     coderay (1.1.1)
     concurrent-ruby (1.0.2)
     coveralls (0.8.14)
@@ -78,6 +80,7 @@ GEM
     factory_girl_rails (4.7.0)
       factory_girl (~> 4.7.0)
       railties (>= 3.0.0)
+    ffi (1.9.13)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     httparty (0.13.7)
@@ -168,6 +171,7 @@ GEM
       rspec-mocks (~> 3.5.0)
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
+    rubyzip (1.2.0)
     sass (3.4.22)
     sass-rails (5.0.5)
       railties (>= 4.0.0, < 6)
@@ -175,6 +179,10 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    selenium-webdriver (2.53.4)
+      childprocess (~> 0.5)
+      rubyzip (~> 1.0)
+      websocket (~> 1.0)
     shoulda (3.5.0)
       shoulda-context (~> 1.0, >= 1.0.1)
       shoulda-matchers (>= 1.4.1, < 3.0)
@@ -205,8 +213,10 @@ GEM
     uglifier (3.0.0)
       execjs (>= 0.3.0, < 3)
     valid_attribute (2.0.0)
+    vcr (3.0.1)
     warden (1.2.6)
       rack (>= 1.0)
+    websocket (1.2.3)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -232,9 +242,11 @@ DEPENDENCIES
   rails_12factor
   rspec-rails (~> 3.0)
   sass-rails (~> 5.0)
+  selenium-webdriver
   shoulda
   uglifier (>= 1.3.0)
   valid_attribute
+  vcr
 
 RUBY VERSION
    ruby 2.2.3p173
