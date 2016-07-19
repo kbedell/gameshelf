@@ -1,15 +1,11 @@
-require 'json'
 require 'rubygems'
 require 'nokogiri'
-require 'open-uri'
 
 class BGGGame
   include HTTParty
 
-  def self.search_games(game_name)
+  def self.create_games_list(page)
     games = []
-    page = Nokogiri::HTML(open('https://www.boardgamegeek.com/xmlapi/search?search=' + game_name))
-
     boardgames = page.css('boardgame')
 
     boardgames.each do |game|
@@ -23,14 +19,12 @@ class BGGGame
     return games
   end
 
-  def self.add_game(game_id, user_id)
-    page = Nokogiri::HTML(open('https://www.boardgamegeek.com/xmlapi/boardgame/' + game_id))
-
+  def self.create_game(game_id, page, user_id)
     game = Game.find_by(bggid: game_id)
-
-    if !game
+    
+    if game == nil
       boardgame = Game.new()
-      boardgame.name = page.css('name')[0].text
+      boardgame.name = page.css("name[primary='true']").text
 
       if boardgame.genre = page.css('boardgamesubdomain')[0]
         boardgame.genre = page.css('boardgamesubdomain')[0].text
@@ -54,10 +48,10 @@ class BGGGame
 
       usersgame = Usersgame.new()
       usersgame.user_id = user_id
-      usersgame.game_id = game.id
+      usersgame.game_id = boardgame.id
       usersgame.save
 
-      return {game: {name: boardgame.name = page.css('name')[0].text, year: boardgame.year = page.css('yearpublished').text}}
+      return {game: {name: page.css("name[primary='true']").text, year: page.css('yearpublished').text}}
     else
       usersgame = Usersgame.new()
       usersgame.user_id = user_id
