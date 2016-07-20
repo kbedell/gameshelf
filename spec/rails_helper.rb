@@ -9,6 +9,9 @@ require 'support/database_cleaner'
 require 'capybara/rails'
 require 'valid_attribute'
 
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+include OmniAuthTestHelper
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
