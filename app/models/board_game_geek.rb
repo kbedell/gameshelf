@@ -6,13 +6,14 @@ class BoardGameGeek
 
   def self.search_games(game_name)
     response =  Nokogiri::HTML(open('https://www.boardgamegeek.com/xmlapi/search?search=' + game_name))
+    binding.pry
     puts response
     return response
   end
 
   def self.add_game(game_id)
     page = Nokogiri::HTML(open('https://www.boardgamegeek.com/xmlapi/boardgame/' + game_id))
-    puts response
+    puts page
     return page
   end
 
