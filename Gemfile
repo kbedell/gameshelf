@@ -10,6 +10,8 @@ gem 'quiet_assets'
 gem 'devise'
 gem 'httparty'
 gem 'nokogiri'
+gem 'omniauth'
+gem 'omniauth-amazon'
 
 group :development, :test do
   gem 'capybara'
