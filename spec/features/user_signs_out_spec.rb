@@ -6,15 +6,15 @@ feature 'User Signs Out' do
   scenario 'User sucessfully signs out' do
     visit usersgames_path
     click_link 'Sign In'
-    fill_in 'Email', with: user.email
+    fill_in 'user_email', with: user.email
     fill_in 'user_password', with: user.password
-    click_button 'log_in'
+    click_button 'Log in'
+
     expect(page).to have_content('Sign Out')
 
     click_link 'Sign Out'
 
     expect(page).to have_content('Sign In')
-    expect(page).to have_content('Signed out successfully.')
   end
 
   scenario 'User cannot sign out unless already signed in' do

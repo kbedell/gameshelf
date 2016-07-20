@@ -6,9 +6,10 @@ gem 'pg', '~> 0.15'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
-gem 'valid_attribute'
 gem 'quiet_assets'
 gem 'devise'
+gem 'httparty'
+gem 'nokogiri'
 
 group :development, :test do
   gem 'capybara'
@@ -18,6 +19,9 @@ group :development, :test do
   gem 'shoulda'
   gem 'valid_attribute'
   gem 'dotenv-rails'
+  gem 'capybara-webkit'
+  gem 'selenium-webdriver'
+  gem 'mocha'
 end
 
 group :test do

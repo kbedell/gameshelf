@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'user edits their account settings page' do
+feature 'User Edits their Account' do
   let(:user)  { FactoryGirl.create(:user) }
 
   before :each do
@@ -30,7 +30,7 @@ feature 'user edits their account settings page' do
     click_link 'Edit Account'
     click_button 'Update'
 
-    expect(page).to have_content('can\'t be blank')
+    expect(page).to have_content("can't be blank")
     expect(page).to_not have_content('Your account has been updated successfully.')
   end
 

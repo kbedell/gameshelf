@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :game do
-    sequence(:name) { |n| 'game of thrones#{n}' }
+    sequence(:name) { |n| "game of thrones#{n}" }
     genre 'Family'
     designer 'Parker Bros'
     description 'A deadly game of chance'

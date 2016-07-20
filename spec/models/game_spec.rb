@@ -7,18 +7,6 @@ describe Game, type: :model do
     it { should have_valid(:name).when('Settlers of Catan', 'Tokaido') }
     it { should_not have_valid(:name).when('', nil) }
 
-    it { should have_valid(:genre).when('Negotiation', 'Travel') }
-    it { should_not have_valid(:genre).when('', nil) }
-
-    it { should have_valid(:designer).when('Klaus Teuber', 'Antoine Bauza') }
-    it { should_not have_valid(:designer).when('', nil) }
-
-    it { should have_valid(:description).when(
-      'Begin a quest to settle the island of Catan! Guide your brave settlers to victory by using clever trading and shrewd development.',
-      'In Tokaido, each player is a traveler crossing the \'East sea road\', one of the most magnificent roads of Japan.')
-       }
-    it { should_not have_valid(:description).when('', nil) }
-
     it { should have_valid(:max_players).when('4', '5') }
     it { should_not have_valid(:max_players).when('', nil) }
 

@@ -25,7 +25,7 @@ feature 'User Signs In' do
 
   end
 
-  scenario 'Users email, and name don\'t match' do
+  scenario "Users email, and name don't match" do
     visit usersgames_path
     click_link 'Sign In'
     fill_in 'Email', with: user.email
