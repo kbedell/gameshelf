@@ -8,7 +8,7 @@ feature 'User Signs In' do
     click_link 'Sign In'
     fill_in 'Email', with: user.email
     fill_in 'user_password', with: user.password
-    click_button 'log_in'
+    click_button 'log-in'
 
     expect(page).to have_content('Sign Out')
     expect(page).to_not have_content('Sign In')
@@ -18,7 +18,7 @@ feature 'User Signs In' do
   scenario 'user does not fill in sign in form' do
     visit usersgames_path
     click_link 'Sign In'
-    click_button 'log_in'
+    click_button 'log-in'
 
     expect(page).to_not have_content('Sign Out')
     expect(page).to have_content('Wrong Email, password, or you have blank fields')
@@ -30,7 +30,7 @@ feature 'User Signs In' do
     click_link 'Sign In'
     fill_in 'Email', with: user.email
     fill_in 'user_password', with: 'any password'
-    click_button 'log_in'
+    click_button 'log-in'
 
     expect(page).to_not have_content('Sign Out')
     expect(page).to have_content('Wrong Email, password, or you have blank fields.')
@@ -42,7 +42,7 @@ feature 'User Signs In' do
     click_link 'Sign In'
     fill_in 'Email', with: 'randomuser@mail.com'
     fill_in 'user_password', with: 'randompassword'
-    click_button 'log_in'
+    click_button 'log-in'
 
     expect(page).to_not have_content('Sign Out')
     expect(page).to have_content('You are not yet a Gameshelf member. Please sign up, and try again.')

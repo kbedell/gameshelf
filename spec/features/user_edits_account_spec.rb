@@ -8,7 +8,7 @@ feature 'User Edits their Account' do
     click_link 'Sign In'
     fill_in 'Email', with: user.email
     fill_in 'user_password', with: user.password
-    click_button 'log_in'
+    click_button 'log-in'
   end
 
   scenario 'user successfully edits their account info' do

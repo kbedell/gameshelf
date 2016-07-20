@@ -30,7 +30,7 @@ class GameManager extends Component {
   handleAddGameClick(event){
     event.preventDefault();
     if(this.state.selectedGame == ''){
-      $('.alert').append ('<h2>Please select a game to add</h2>');
+      $('.alert').append ("<div class='flash'>Please select a game to add</div>");
     } else  {
       $.ajax({
         method: 'POST',
@@ -40,7 +40,8 @@ class GameManager extends Component {
       })
       .done(data => {
         $('.games').append ('<li>' + data.game.name + ' (' + data.game.year + ')' + '</li>');
-        $('.alert').append ('<h2>Game added successfully</h2>');
+        $('.alert').append ("<div class='flash'>Game added successfully</div>");
+        this.setState( {data: []});
       });
     }
   }
@@ -48,7 +49,7 @@ class GameManager extends Component {
   handleSearchClick(event){
     event.preventDefault();
     if(this.state.name == ''){
-      $('.alert').append ('<h2>Please enter something in the search field</h2>');
+      $('.alert').append ("<div class='flash'>Please enter something in the search field</div>");
     } else  {
       $.ajax({
         method: 'POST',

@@ -1,2 +1,102 @@
-// @import "*";
+/*
+ * This is a manifest file that"ll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin"s vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You"re free to add application-wide styles to this file and they"ll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require foundation_and_overrides
 
+ */
+
+ @import "foundation_and_overrides";
+
+body {
+  background-color: $background-grey;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.25em;
+}
+
+label {
+  font-size: 1em;
+}
+
+a {
+  color: $orange;
+}
+
+a:hover {
+  color: $black;
+}
+
+.alert, .notice {
+  background-color: $orange;
+}
+
+.amazon-login {
+  text-align: center;
+}
+
+.button {
+  background-color: $orange;
+  font-size: 1em;
+}
+
+.button, .menu a {
+  color: $white;
+  font-weight: bold;
+}
+
+.centered-text {
+  text-align: center;
+}
+
+.columns {
+  padding-bottom: 10px;
+  padding-top: 15px;
+}
+
+.flash {
+  color: $white;
+  font-weight: bold;
+  padding-left: 25px;
+}
+
+.games {
+  font-size: 1.15em;
+  list-style: none;
+}
+
+.logo {
+  background-color: $background-grey;
+  text-align: center;
+}
+
+.main-content {
+  background-color: $white;
+}
+
+.menu {
+  background-color: $orange;
+  padding: 10px 15px;
+}
+
+.page-header {
+  text-align: center
+}
+
+.page-header h2 {
+  display: block;
+  font-family: "Oswald", sans-serif;
+}
+
+.site-title {
+  background-image: url("Gameshelf.png");
+}
