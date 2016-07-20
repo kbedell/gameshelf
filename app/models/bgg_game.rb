@@ -2,7 +2,6 @@ require 'rubygems'
 require 'nokogiri'
 
 class BGGGame
-  include HTTParty
 
   def self.create_games_list(page)
     games = []
@@ -21,7 +20,7 @@ class BGGGame
 
   def self.create_game(game_id, page, user_id)
     game = Game.find_by(bggid: game_id)
-    
+
     if game == nil
       boardgame = Game.new()
       boardgame.name = page.css("name[primary='true']").text

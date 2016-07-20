@@ -8,8 +8,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'quiet_assets'
 gem 'devise'
-gem 'httparty'
 gem 'nokogiri'
+gem 'foundation-rails'
 
 group :development, :test do
   gem 'capybara'
