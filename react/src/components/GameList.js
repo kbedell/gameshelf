@@ -16,7 +16,7 @@ const GameList = props => {
 
   let submitButton = () => {
     if(props.data.length > 0){
-      return ( <input type="submit" value="Add Game to my Library" /> )
+      return ( <input type="submit" className='button' value="Add Game to my Library" /> )
     }
   };
 

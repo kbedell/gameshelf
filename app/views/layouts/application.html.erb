@@ -1,36 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title><%= content_for?(:title) ? yield(:title) : "Gameshelf" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Gameshelf" %></title>
 
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <link href="https://fonts.googleapis.com/css?family=Oswald|Raleway" rel="stylesheet">
-</head>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Raleway" rel="stylesheet">
+  </head>
 
-<body>
-  <div class = 'row main-content'>
-    <div class = 'logo' >
-      <img src= "/assets/Gameshelf.png" />
-    </div>
-    <ul class='menu'>
-      <li> <%= link_to 'My Game List', usersgames_path %> </li>
-      <% if user_signed_in? %>
-      <li> <%= link_to 'Edit Account', edit_user_registration_path %> </li>
-      <li> <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete  %> </li>
-      <% else %>
-      <li> <%= link_to 'Sign Up', new_user_registration_path %> </li>
-      <li> <%= link_to 'Sign In', new_user_session_path  %>
-        <% end %>
+  <body>
+    <div class = 'row main-content'>
+      <div class = 'logo' >
+        <img src= "/assets/Gameshelf.png" />
+      </div>
+
+      <ul class='menu'>
+        <li> <%= link_to 'My Game List', usersgames_path %> </li>
+        <% if user_signed_in? %>
+        <li> <%= link_to 'Edit Account', edit_user_registration_path %> </li>
+        <li> <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete  %> </li>
+        <% else %>
+        <li> <%= link_to 'Sign Up', new_user_registration_path %> </li>
+        <li> <%= link_to 'Sign In', new_user_session_path  %>
+          <% end %>
       </ul>
-      <div class='notice'><%= notice %></div>
-      <div class='alert'><%= alert %></div>
-      
-      <%= yield %>
-  </div>
-</body>
+
+      <div class='notice'>
+        <div class='flash'>
+          <%= notice %>
+        </div>
+      </div>
+
+      <div class='alert'>
+        <div class='flash'>
+          <%= alert %>
+        </div>
+      </div>
+
+      <div class='columns'>
+        <%= yield %>
+      </div>
+    </div>
+  </body>
 </html>

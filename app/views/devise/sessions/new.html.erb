@@ -1,13 +1,30 @@
-<h2>Log in</h2>
+<div class='page-header'>
+  <h2>Welcome to Gameshelf</h2>
+</div>
+
+<div class='centered-text'>
+  <h4>Login with Amazon to use Gameshelf with your Echo!</h4>
+</div>
+
+<%- if devise_mapping.omniauthable? %>
+  <div class='amazon-login'>
+    <%- resource_class.omniauth_providers.each do |provider| %>
+    <a href=<%= omniauth_authorize_path(resource_name, provider) %>>
+      <img id='amazonbtn' border='0' alt='Login with Amazon'
+        src='/assets/amazonbutton.png' />
+    </a>
+    <% end -%>
+  </div>
+<% end -%>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class='field'>
-    <%= f.label :email %><br />
+    <%= f.label :email %>
     <%= f.email_field :email, autofocus: true %>
   </div>
 
   <div class='field'>
-    <%= f.label :password %><br />
+    <%= f.label :password %>
     <%= f.password_field :password, autocomplete: 'off' %>
   </div>
 
@@ -19,7 +36,7 @@
   <% end -%>
 
   <div class='actions'>
-    <%= f.submit 'Log in', id: 'log_in' %>
+    <%= f.submit 'Log in', class: 'button' %>
   </div>
 <% end %>
 

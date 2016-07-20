@@ -10,7 +10,7 @@ const GameForm = props => {
         value={props.name}
         onChange={props.handleChange}
       />
-      <input type="submit" value="Search for Game" />
+      <input type="submit" className='button' value="Search for Game" />
     </form>
   )
 }

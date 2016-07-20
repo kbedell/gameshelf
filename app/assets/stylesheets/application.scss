@@ -21,6 +21,57 @@
 body {
   background-color: $background-grey;
   font-family: 'Raleway', sans-serif;
+  font-size: 1.25em;
+}
+
+label {
+  font-size: 1em;
+}
+
+a {
+  color: $orange;
+}
+
+a:hover {
+  color: $black;
+}
+
+.alert, .notice {
+  background-color: $orange;
+}
+
+.amazon-login {
+  text-align: center;
+}
+
+.button {
+  background-color: $orange;
+  font-size: 1em;
+}
+
+.button, .menu a {
+  color: $white;
+  font-weight: bold;
+}
+
+.centered-text {
+  text-align: center;
+}
+
+.columns {
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+
+.flash {
+  color: $white;
+  font-weight: bold;
+  padding-left: 25px;
+}
+
+.games {
+  list-style: none;
+  font-size: 1.15em;
 }
 
 .logo {
@@ -37,8 +88,13 @@ body {
   padding: 10px 15px;
 }
 
-.menu a {
-  color: $white;
+.page-header {
+  text-align: center
+}
+
+.page-header h2 {
+  display: block;
+  font-family: 'Oswald', sans-serif;
 }
 
 .site-title {
