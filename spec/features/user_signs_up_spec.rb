@@ -11,7 +11,7 @@ feature 'User Signs Up' do
     fill_in 'Email', with: user.email
     fill_in 'user_password', with: user.password
     fill_in 'user_password_confirmation', with: user.password
-    click_button 'sign_up'
+    click_button 'sign-up'
 
     expect(page).to have_content('Welcome to Gameshelf!')
     expect(page).to have_content('Sign Out')
@@ -20,7 +20,7 @@ feature 'User Signs Up' do
   scenario 'User does not enter all reqiured information' do
     visit usersgames_path
     click_link 'Sign Up'
-    click_button 'sign_up'
+    click_button 'sign-up'
 
     expect(page).to have_content("First name can't be blank")
     expect(page).to have_content("Email can't be blank")
@@ -35,7 +35,7 @@ feature 'User Signs Up' do
     fill_in 'Email', with: user.email
     fill_in 'user_password', with: user.password
     fill_in 'user_password_confirmation', with: 'masterOfCoin'
-    click_button 'sign_up'
+    click_button 'sign-up'
 
     expect(page).to have_content("Password confirmation doesn't match")
   end
@@ -50,7 +50,7 @@ feature 'User Signs Up' do
     fill_in 'Email', with: user2.email
     fill_in 'user_password', with: user2.password
     fill_in 'user_password_confirmation', with: user2.password_confirmation
-    click_button 'sign_up'
+    click_button 'sign-up'
 
     expect(page).to have_content('Email has already been taken')
   end

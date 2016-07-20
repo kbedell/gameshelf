@@ -1,11 +1,11 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * This is a manifest file that"ll be compiled into application.css, which will include all the files
  * listed below.
  *
  * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ * or any plugin"s vendor/assets/stylesheets directory can be referenced here using a relative path.
  *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * You"re free to add application-wide styles to this file and they"ll appear at the bottom of the
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
@@ -20,7 +20,7 @@
 
 body {
   background-color: $background-grey;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 1.25em;
 }
 
@@ -59,8 +59,8 @@ a:hover {
 }
 
 .columns {
-  padding-top: 15px;
   padding-bottom: 10px;
+  padding-top: 15px;
 }
 
 .flash {
@@ -70,8 +70,8 @@ a:hover {
 }
 
 .games {
-  list-style: none;
   font-size: 1.15em;
+  list-style: none;
 }
 
 .logo {
@@ -94,7 +94,7 @@ a:hover {
 
 .page-header h2 {
   display: block;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
 }
 
 .site-title {
