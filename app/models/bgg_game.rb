@@ -15,6 +15,7 @@ class BGGGame
       games << game
     end
 
+    puts games
     return games
   end
 
