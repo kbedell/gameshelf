@@ -1,10 +1,15 @@
 class Api::V1::UsersgamesController < ApiController
   def show
-    user = current_user.id
-    games = user.games
-    game = games.sample
+    user = current_user
+    all_games = user.games
 
-    render json: {game: game}, status: :ok
+    filtered_games = Usersgame.filtered_games(params['players']['players'], all_games)
+    if filtered_games != []
+      game = Usersgame.random_game(filtered_games)
+      render json: {game: game}, status: :ok
+    else
+      render json: {game: 'No Game'}, status: :ok
+    end
   end
 
   before_action :authenticate_user!
