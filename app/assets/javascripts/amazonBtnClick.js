@@ -1,7 +1,7 @@
 $(function() {
   $('#amazonbtn').mousedown(function() {
-      $("#amazonbtn").attr('src','/assets/amazonbuttonclick.png');
+      $("#amazonbtn").attr('src','amazonbuttonclick.png');
   }).bind('mouseup mouseleave', function() {
-      $("#amazonbtn").attr('src','/assets/amazonbutton.png');
+      $("#amazonbtn").attr('src','amazonbutton.png');
   });
 });
