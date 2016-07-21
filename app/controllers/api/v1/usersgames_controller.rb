@@ -1,6 +1,13 @@
 class Api::V1::UsersgamesController < ApiController
-  before_action :authenticate_user!
+  def show
+    user = current_user.id
+    games = user.games
+    game = games.sample
 
+    render json: {game: game}, status: :ok
+  end
+
+  before_action :authenticate_user!
   def index
     games = User.find(current_user.id).games.order(name: :asc)
 
