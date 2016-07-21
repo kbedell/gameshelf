@@ -21,7 +21,7 @@
 
       <ul class='menu'>
         <% if user_signed_in? %>
-        <li> <a href='/pages/selector'>Board Game Selector</a> </li>
+        <li> <%= link_to 'Board Game Selector', usersgames_random_path %> </li>
         <li> <%= link_to 'My Game List', usersgames_path %> </li>
         <% end %>
         <li> <a href='/pages/privacy'>Privacy Policy</a></li>
