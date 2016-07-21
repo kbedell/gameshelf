@@ -10,7 +10,7 @@
   <div class='amazon-login'>
     <%- resource_class.omniauth_providers.each do |provider| %>
     <a href=<%= omniauth_authorize_path(resource_name, provider) %>>
-      <%= image_tag("amazonbutton.png", alt: "Login with Amazon")%>
+      <%= image_tag("amazonbutton.png", alt: "Login with Amazon", id: 'amazonbtn') %>
     </a>
     <% end -%>
   </div>
