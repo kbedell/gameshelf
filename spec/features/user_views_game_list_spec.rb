@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'User Adds a Game' do
+feature 'User Views Games' do
   let!(:user) { FactoryGirl.create(:user) }
   let!(:game) { FactoryGirl.create(:game) }
   let!(:game2) { FactoryGirl.create(:game) }
@@ -10,14 +10,14 @@ feature 'User Adds a Game' do
   before :each do
     login_as(user, scope: :user)
     visit usersgames_path
-    click_link 'My Game List'
   end
 
-  scenario 'user sees a list of all games in their list' do
-
+  scenario 'user sees a list of all games in their list', js:true do
+    visit usersgames_path
+    wait_for_ajax
     expect(page).to have_content(game.name)
     expect(page).to have_content(game.year)
     expect(page).to have_content(game2.name)
-    expect(page).to have_content(game.year)
+    expect(page).to have_content(game2.year)
   end
 end
