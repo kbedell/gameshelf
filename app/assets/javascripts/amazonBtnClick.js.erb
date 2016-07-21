@@ -1,9 +1,7 @@
 $(function() {
   $('#amazonbtn').mousedown(function() {
-      $("#amazonbtn").attr('src',"<%= image_path('amazonbuttonclick.jpg') %>");
-      console.log("<%= image_path('amazonbuttonclick.jpg') %>");
+      $("#amazonbtn").attr('src',"<%= image_path('amazonbuttonclick.png') %>");
   }).bind('mouseup mouseleave', function() {
-      $("#amazonbtn").attr('src',"<%= image_path('amazonbutton.jpg') %>");
-      console.log("<%= image_path('amazonbutton.jpg') %>");
+      $("#amazonbtn").attr('src',"<%= image_path('amazonbutton.png') %>");
   });
 });
