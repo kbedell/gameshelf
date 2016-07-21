@@ -50,14 +50,14 @@ class BGGGame
       usersgame.game_id = boardgame.id
       usersgame.save
 
-      return {game: {name: page.css("name[primary='true']").text, year: page.css('yearpublished').text}}
+      return {game: {name: page.css("name[primary='true']").text, year: page.css('yearpublished').text, id: boardgame.id}}
     else
       usersgame = Usersgame.new()
       usersgame.user_id = user_id
       usersgame.game_id = game.id
       usersgame.save
 
-      return {game: {name: game.name, year: game.year}}
+      return {game: {name: game.name, year: game.year, id: game.id}}
     end
   end
 end

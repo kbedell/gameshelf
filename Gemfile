@@ -24,6 +24,7 @@ group :development, :test do
   gem 'capybara-webkit'
   gem 'selenium-webdriver'
   gem 'mocha'
+  gem 'poltergeist'
 end
 
 group :test do
