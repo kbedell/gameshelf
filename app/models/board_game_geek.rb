@@ -5,15 +5,15 @@ require 'open-uri'
 class BoardGameGeek
 
   def self.search_games(game_name)
-    response =  Nokogiri::HTML(open('https://www.boardgamegeek.com/xmlapi/search?search=' + game_name))
-    binding.pry
+    url_text = Net::HTTP.get(URI.parse('https://www.boardgamegeek.com/xmlapi/search?search=' + game_name))
+    response = Nokogiri::XML(url_text)
     puts response
     return response
   end
 
   def self.add_game(game_id)
-    page = Nokogiri::HTML(open('https://www.boardgamegeek.com/xmlapi/boardgame/' + game_id))
-    puts page
+    url_text = Net::HTTP.get(URI.parse('https://www.boardgamegeek.com/xmlapi/boardgame/' + game_id))
+    page = Nokogiri::XML(url_text)
     return page
   end
 
