@@ -63,6 +63,14 @@ a:hover {
   padding-top: 15px;
 }
 
+.delete-button {
+  color: $orange;
+}
+
+.delete-button:hover {
+  color: $hover-blue;
+}
+
 .flash {
   color: $white;
   font-weight: bold;

@@ -7,7 +7,6 @@ class BoardGameGeek
   def self.search_games(game_name)
     url_text = Net::HTTP.get(URI.parse('https://www.boardgamegeek.com/xmlapi/search?search=' + game_name))
     response = Nokogiri::XML(url_text)
-    puts response
     return response
   end
 

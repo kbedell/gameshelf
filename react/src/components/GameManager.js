@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import GameForm from './GameForm';
 import GameList from './GameList';
+import UsersGamesList from './UsersGamesList';
 
 class GameManager extends Component {
   constructor(props) {
@@ -8,13 +9,30 @@ class GameManager extends Component {
     this.state = {
       name: '',
       selectedGame: '',
-      data: []
+      data: [],
+      games: []
     };
 
     this.handleSearchClick = this.handleSearchClick.bind(this);
     this.handleAddGameClick = this.handleAddGameClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleRadioChange = this.handleRadioChange.bind(this);
+    this.handleButtonClick = this.handleButtonClick.bind(this);
+    this.loadGames = this.loadGames.bind(this);
+  }
+
+  loadGames() {
+    $.ajax({
+      url: '/api/v1/usersgames',
+      contentType: 'application/json'
+    })
+    .done(data => {
+      this.setState({ games: data.games });
+    });
+  }
+
+  componentDidMount() {
+    this.loadGames();
   }
 
   handleChange(event) {
@@ -39,8 +57,8 @@ class GameManager extends Component {
         data: JSON.stringify({'game': { 'name': this.state.selectedGame }})
       })
       .done(data => {
-        $('.games').append ('<li>' + data.game.name + ' (' + data.game.year + ')' + '</li>');
         $('.alert').append ("<div class='flash'>Game added successfully</div>");
+        this.loadGames();
         this.setState( {data: []});
       });
     }
@@ -63,6 +81,17 @@ class GameManager extends Component {
     }
   }
 
+  handleButtonClick(id) {
+    $.ajax({
+      method: "Delete",
+      url: "/api/v1/usersgames/" + id
+    })
+    .done((data) => {
+      $('.alert').append ("<div class='flash'>Game deleted!</div>");
+      $( '#' + id ).remove();
+    });
+  }
+
   render() {
     return (
       <div>
@@ -75,6 +104,10 @@ class GameManager extends Component {
         data={this.state.data}
         handleAddGameClick={this.handleAddGameClick}
         handleRadioChange={this.handleRadioChange}
+      />
+      <UsersGamesList
+        games={this.state.games}
+        handleButtonClick={this.handleButtonClick}
       />
       </div>
     )
