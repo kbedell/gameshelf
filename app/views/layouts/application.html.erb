@@ -21,12 +21,12 @@
 
       <ul class='menu'>
         <li> <%= link_to 'My Game List', usersgames_path %> </li>
+        <li> <a href='/pages/privacy'>Privacy Policy</a></li>
         <% if user_signed_in? %>
         <li> <%= link_to 'Edit Account', edit_user_registration_path %> </li>
         <li> <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete  %> </li>
         <% else %>
         <li> <%= link_to 'Sign Up', new_user_registration_path %> </li>
-        <li> <%= link_to 'Sign In', new_user_session_path  %>
           <% end %>
       </ul>
 

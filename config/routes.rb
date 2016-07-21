@@ -14,5 +14,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get "/pages/:page" => "pages#show"
+
   root 'usersgames#index'
 end
