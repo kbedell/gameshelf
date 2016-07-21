@@ -1,5 +1,5 @@
 require 'rails_helper'
-Capybara.javascript_driver = :poltergeist
+Capybara.javascript_driver = :poltergeist_with_blacklist
 
 feature 'User Deletes a Game' do
   let!(:user) { FactoryGirl.create(:user) }
