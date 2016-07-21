@@ -15,7 +15,7 @@ feature 'User Deletes a Game' do
     wait_for_ajax
     expect(page).to have_content(game.name)
 
-    find('#delete-button').click
+    find('#delete-button').trigger('click')
     wait_for_ajax
     expect(page).to_not have_content(game.name)
   end
