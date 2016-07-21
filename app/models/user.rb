@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :usersgames
+  has_many :usersgames, dependent: :delete_all
   has_many :games, through: :usersgames
 
   validates :first_name, presence: true
