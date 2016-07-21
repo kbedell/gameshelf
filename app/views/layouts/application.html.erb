@@ -16,11 +16,14 @@
   <body>
     <div class = 'row main-content'>
       <div class = 'logo' >
-        <%= image_tag("Gameshelf.png", alt: "Gameshelf Logo")%>
+        <a href="/"><%= image_tag("Gameshelf.png", alt: "Gameshelf Logo")%></a>
       </div>
 
       <ul class='menu'>
+        <% if user_signed_in? %>
+        <li> <a href='/pages/selector'>Board Game Selector</a> </li>
         <li> <%= link_to 'My Game List', usersgames_path %> </li>
+        <% end %>
         <li> <a href='/pages/privacy'>Privacy Policy</a></li>
         <% if user_signed_in? %>
         <li> <%= link_to 'Edit Account', edit_user_registration_path %> </li>

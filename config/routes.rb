@@ -16,5 +16,5 @@ Rails.application.routes.draw do
 
   get "/pages/:page" => "pages#show"
 
-  root 'usersgames#index'
+  root 'pages#selector'
 end
