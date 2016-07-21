@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Usersgame, type: :model do
 
   describe 'validation' do
-    it { should belong_to(:user).dependent(:destroy)}
+    it { should belong_to :user}
     it { should belong_to :game}
 
     it { should have_valid(:user_id).when(1, 2) }

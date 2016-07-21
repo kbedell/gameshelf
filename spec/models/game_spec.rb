@@ -3,6 +3,7 @@ require 'rails_helper'
 describe Game, type: :model do
   describe 'validation' do
     it { should have_many(:users).through(:usersgames) }
+    it { should have_many :usersgames }
 
     it { should have_valid(:name).when('Settlers of Catan', 'Tokaido') }
     it { should_not have_valid(:name).when('', nil) }

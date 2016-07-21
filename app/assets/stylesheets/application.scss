@@ -21,7 +21,7 @@
 body {
   background-color: $background-grey;
   font-family: "Raleway", sans-serif;
-  font-size: 1.25em;
+  font-size: 1em;
 }
 
 label {
@@ -33,7 +33,7 @@ a {
 }
 
 a:hover {
-  color: $black;
+  color: $hover-blue;
 }
 
 .alert, .notice {
@@ -70,12 +70,13 @@ a:hover {
 }
 
 .games {
-  font-size: 1.15em;
+  font-size: 1em;
   list-style: none;
 }
 
 .logo {
   background-color: $background-grey;
+  padding-top: 15px;
   text-align: center;
 }
 
@@ -96,8 +97,4 @@ a:hover {
 .page-header h2 {
   display: block;
   font-family: "Oswald", sans-serif;
-}
-
-.site-title {
-  background-image: url("Gameshelf.png");
 }
