@@ -1,6 +1,11 @@
 <div id="add-game"></div>
 <ul class="games">
   <% @games.each do |game| %>
-  <li> <%= game.name %> (<%= game.year %>) </li>
+  <li>
+
+    <%= link_to usersgame_path(game.id), method: :delete, class: 'delete-button' do %>
+      <i class='fa fa-times' aria-hidden='true'></i>
+    <% end %>
+    <%= game.name %> (<%= game.year %>) </li>
   <% end %>
 </ul>

@@ -9,4 +9,10 @@ class UsersgamesController < ApplicationController
       @games = []
     end
   end
+
+  def destroy
+    usersgame = Usersgame.find_by(user_id: current_user.id, game_id: params[:id])
+    usersgame.destroy
+    redirect_to usersgames_path
+  end
 end
