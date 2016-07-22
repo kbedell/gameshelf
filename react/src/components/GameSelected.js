@@ -6,24 +6,16 @@ class GameSelected extends Component {
   }
 
   render() {
-    debugger;
-    if(this.props.game === {}){
-      return(
-        <div>
+    return (
+      <div>
+        <div className='game-name'>
+          {this.props.game.name}
         </div>
-      )
-    } else {
-      return (
-        <div>
-          <div className='game-name'>
-            {this.props.game.name}
-          </div>
-          <div className='game-minplayers'>
-            {this.props.game.min_players} - {this.props.game.max_players}
-          </div>
+        <div className='game-minplayers'>
+          {this.props.game.min_players} - {this.props.game.max_players}
         </div>
-      )
-    }
+      </div>
+    )
   }
 }
 

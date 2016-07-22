@@ -10,7 +10,7 @@ class Usersgame < ActiveRecord::Base
     filtered_games = []
 
     games.each do |game|
-      if game.max_players <= players.to_i && game.min_players <= players.to_i
+      if players.to_i <= game.max_players && players.to_i >= game.min_players
         filtered_games << game
       end
     end
