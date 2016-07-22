@@ -23,14 +23,15 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'capybara-webkit'
   gem 'selenium-webdriver'
-  gem 'mocha'
   gem 'poltergeist'
+  gem 'webmock'
 end
 
 group :test do
   gem 'launchy', require: false
   gem 'database_cleaner'
   gem 'coveralls', require: false
+  gem 'vcr'
 end
 
 group :production do

@@ -2,7 +2,6 @@ require 'rubygems'
 require 'nokogiri'
 
 class BGGGame
-
   def self.create_games_list(page)
     games = []
     boardgames = page.css('boardgame')
