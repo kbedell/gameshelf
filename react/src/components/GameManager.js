@@ -77,6 +77,7 @@ class GameManager extends Component {
       })
       .done(data => {
         this.setState( {data: data.games} );
+        $( '.flash' ).remove();
       });
     }
   }
