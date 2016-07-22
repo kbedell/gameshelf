@@ -24,7 +24,7 @@ ratings:
   - app/**
   - lib/**
   - "**.rb"
-  - "**.go"
+  - "**.js"
 
 exclude_paths:
-- app/assets/javascript/bundle.js
+- app/assets/javascripts/bundle.js
