@@ -1,2 +1,2 @@
 exclude_paths:
-- "app/assets/javascript/bundle.js"
+- app/assets/javascript/bundle.js
