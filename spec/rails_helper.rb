@@ -11,6 +11,7 @@ require 'valid_attribute'
 require 'capybara/poltergeist'
 require 'support/wait_for_ajax'
 require 'webmock/rspec'
+require 'support/controller_helpers'
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 include OmniAuthTestHelper
@@ -27,7 +28,8 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
 
-  config.include Devise::TestHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, :type => :controller
+  config.include ControllerHelpers, :type => :controller
   config.include Warden::Test::Helpers
    config.before :suite do
      Warden.test_mode!
