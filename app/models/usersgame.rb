@@ -7,15 +7,19 @@ class Usersgame < ActiveRecord::Base
   validates :game_id, uniqueness: { scope: :user_id, message: 'has already been taken' }
 
   def self.filtered_games(players, games)
-    filtered_games = []
+    if players == ''
+      return games
+    else
+      filtered_games = []
 
-    games.each do |game|
-      if players.to_i <= game.max_players && players.to_i >= game.min_players
-        filtered_games << game
+      games.each do |game|
+        if players.to_i <= game.max_players && players.to_i >= game.min_players
+          filtered_games << game
+        end
       end
-    end
 
-    filtered_games
+      return filtered_games
+    end
   end
 
   def self.random_game(games)

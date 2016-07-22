@@ -11,11 +11,10 @@ feature 'Random Game' do
 
   before :each do
     login_as(user, scope: :user)
-    visit usersgames_path
+    visit usersgames_random_path
   end
 
   scenario 'user successfully retrieves a random game from their list', js:true do
-    visit usersgames_random_path
     fill_in 'players', with: '4'
     click_button 'Choose a Game for Me'
 
@@ -25,7 +24,6 @@ feature 'Random Game' do
   end
 
   scenario 'user submits the form with empty player field', js:true do
-    visit usersgames_random_path
     click_button 'Choose a Game for Me'
 
     expect(page).to have_content(game.name)
@@ -34,14 +32,13 @@ feature 'Random Game' do
   end
 
   scenario 'user submits the form with an invalid characters', js:true do
-    visit usersgames_random_path
+    fill_in 'players', with: 'A7'
     click_button 'Choose a Game for Me'
 
-    expect(page).to have_content('Please enter a valid number or leave the field blank')
+    expect(page).to have_content('Please enter the number of players or leave the field blank to not specify player number')
   end
 
   scenario 'user should not see games not on their list', js:true do
-    visit usersgames_random_path
     fill_in 'players', with: '4'
     click_button 'Choose a Game for Me'
 
@@ -49,7 +46,6 @@ feature 'Random Game' do
   end
 
   scenario 'user should not see games that do not meet their player criteria', js:true do
-    visit usersgames_random_path
     fill_in 'players', with: '4'
     click_button 'Choose a Game for Me'
 
