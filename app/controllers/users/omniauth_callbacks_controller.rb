@@ -5,7 +5,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     if @user.persisted? || @user.save
       sign_in @user, :event => :authentication #this will throw if @user is not activated
-      redirect_to usersgames_path
+      redirect_to usersgames_random_path
       set_flash_message(:notice, :success, :kind => "Amazon") if is_navigational_format?
     else
       session["devise.amazon_data"] = request.env["omniauth.auth"]
@@ -14,6 +14,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def failure
-    redirect_to root_path
+    redirect_to usersgames_random_path
   end
 end

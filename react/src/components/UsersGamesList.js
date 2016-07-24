@@ -10,6 +10,7 @@ const UsersGameList = props => {
         id={game.id}
         name={game.name}
         year={game.year}
+        thumbnail={game.thumbnail}
         handleButtonClick={onButtonClick}
       />
     );
@@ -17,9 +18,9 @@ const UsersGameList = props => {
 
   return (
     <div>
-      <ul className='games'>
+      <div className='games row small-up-1 medium-up-2 large-up-4'>
         {games}
-      </ul>
+      </div>
     </div>
   );
 };

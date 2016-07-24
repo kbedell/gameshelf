@@ -48,7 +48,7 @@ class GameManager extends Component {
   handleAddGameClick(event){
     event.preventDefault();
     if(this.state.selectedGame == ''){
-      $('.alert').append ("<div class='flash'>Please select a game to add</div>");
+      $('.alert').append ('Please select a game to add');
     } else  {
       $.ajax({
         method: 'POST',
@@ -57,7 +57,7 @@ class GameManager extends Component {
         data: JSON.stringify({'game': { 'name': this.state.selectedGame }})
       })
       .done(data => {
-        $('.alert').append ("<div class='flash'>Game added successfully</div>");
+        $('.alert').append ("<div data-alert class='alert-box success'>Game added successfully</div>");
         this.loadGames();
         this.setState( {data: []});
       });
@@ -67,7 +67,7 @@ class GameManager extends Component {
   handleSearchClick(event){
     event.preventDefault();
     if(this.state.name == ''){
-      $('.alert').append ("<div class='flash'>Please enter something in the search field</div>");
+      $('.alert').append ("<div data-alert class='alert-box alert'>Please enter something in the search field</div>");
     } else  {
       $.ajax({
         method: 'POST',
@@ -84,11 +84,11 @@ class GameManager extends Component {
 
   handleButtonClick(id) {
     $.ajax({
-      method: "Delete",
-      url: "/api/v1/usersgames/" + id
+      method: 'Delete',
+      url: '/api/v1/usersgames/' + id
     })
     .done((data) => {
-      $('.alert').append ("<div class='flash'>Game deleted!</div>");
+      $('.alert').append ("<div data-alert class='alert-box success'>Game deleted!</div>");
       $( '#' + id ).remove();
     });
   }

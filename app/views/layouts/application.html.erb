@@ -1,51 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Gameshelf" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : 'Gameshelf' %></title>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    'application' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-    <link href="https://fonts.googleapis.com/css?family=Oswald|Raleway" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Oswald|Raleway' rel='stylesheet'>
+    <link href='http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
+    <link href='http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet'>
   </head>
 
   <body>
-    <div class = 'row main-content'>
-      <div class = 'logo' >
-        <a href="/"><%= image_tag("Gameshelf.png", alt: "Gameshelf Logo")%></a>
-      </div>
-
-      <ul class='menu'>
+    <nav class='menu'>
+      <h1 class='name'><a class='logo-link' href='/usersgames/random'><i class='fi-die-six'></i>Gameshelf</a></h1>
+      <ul class='inline-list'>
         <% if user_signed_in? %>
         <li> <%= link_to 'Board Game Selector', usersgames_random_path %> </li>
         <li> <%= link_to 'My Game List', usersgames_path %> </li>
         <% end %>
         <li> <a href='/pages/privacy'>Privacy Policy</a></li>
-        <% if user_signed_in? %>
-        <li> <%= link_to 'Edit Account', edit_user_registration_path %> </li>
-        <li> <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete  %> </li>
-        <% else %>
-        <li> <%= link_to 'Sign Up', new_user_registration_path %> </li>
-          <% end %>
       </ul>
+      <ul class='inline-list hide-for-small-only account-action'>
+        <% if user_signed_in? %>
+        <li class='account-action-item'> <%= link_to 'Edit Account', edit_user_registration_path %> </li>
+        <li class='account-action-item'> <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete  %> </li>
+        <% else %>
+        <li class='account-action-item'> <%= link_to 'Sign Up', new_user_registration_path %> </li>
+        <% end %>
+      </ul>
+    </nav>
 
-      <div class='notice'>
-        <div class='flash'>
-          <%= notice %>
+    <div class='row'>
+      <div class='small-6 small-centered columns'>
+        <% if notice != nil %>
+          <% if notice != '' %>
+          <div data-alert class='alert-box success'>
+            <%= notice %>
+          </div>
+          <% end %>
+        <% end %>
+
+        <% if alert != nil %>
+          <% if alert != '' %>
+          <div data-alert class='alert-box alert'>
+            <%= alert %>
+            <% end %>
+          </div>
+        <% end %>
+
+        <div class='alert'>
         </div>
       </div>
+    </div>
 
-      <div class='alert'>
-        <div class='flash'>
-          <%= alert %>
-        </div>
-      </div>
-
-      <div class='columns'>
+    <div class='row'>
+      <div class='small-12 large-8 small-centered columns'>
         <%= yield %>
       </div>
     </div>

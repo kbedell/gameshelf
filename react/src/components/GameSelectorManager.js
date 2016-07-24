@@ -23,17 +23,17 @@ class GameManager extends Component {
     event.preventDefault();
     let regex = /[a-zA-Z]/;
     if(this.state.players.match(regex)) {
-      $( '.flash' ).remove();
-      $('.alert').append ("<div class='flash'>Please enter the number of players or leave the field blank to not specify player number</div>");
+      $('.alert-box').remove();
+      $('.alert').append ("<div div data-alert class='alert-box alert'>Please enter the number of players or leave the field blank to not specify player number</div>");
     } else {
       $.ajax({
-        method: "GET",
-        url: "/api/v1/usersgames/random",
+        method: 'GET',
+        url: '/api/v1/usersgames/random',
         contentType: 'application/json',
         data: {'players': {'players': this.state.players}}
       })
       .done((data) => {
-        $( '.flash' ).remove();
+        $( '.alert' ).remove();
         this.setState({ game: data.game })
         this.setState({ players: '' })
       });
