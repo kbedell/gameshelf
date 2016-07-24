@@ -3,6 +3,7 @@ require 'rails_helper'
 describe User, type: :model do
   describe 'validation' do
     it { should have_many(:games).through(:usersgames) }
+    it { should have_many(:usersgames).dependent(:delete_all)}
 
     it { should have_valid(:first_name).when('John', 'Sally') }
     it { should_not have_valid(:first_name).when('', nil) }

@@ -1,103 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Gameshelf" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : 'Gameshelf' %></title>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    'application' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-    <link href="https://fonts.googleapis.com/css?family=Oswald|Raleway" rel="stylesheet">
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Oswald|Raleway' rel='stylesheet'>
+    <link href='http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
+    <link href='http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet'>
   </head>
 
   <body>
-    <nav class="menu">
-      <h1 class="name"><i class="fi-widget"></i> Gameshelf</a></h1>
-      <ul class="inline-list">
-        <li><%= link_to 'Home', usersgames_random_path %></li>
-        <li class="active"><%= link_to 'My Game List', usersgames_path %></li>
-        <li><a href="#">Pricing</a></li>
-      </ul>
-      <ul class="inline-list hide-for-small-only account-action">
-        <li><a href="#" data-reveal-id="myModal">Login</a></li>
-        <li class=""><a class="signup" href="#" data-reveal-id="myModal">Signup</a></li>
-      </ul>
-      <a class="account hide-for-medium-up" href="#" data-reveal-id="myModal"><i class="fi-unlock"></i></a>
-    </nav>
-
-<!-- modal content -->
-
-<div id="myModal" class="reveal-modal" data-reveal aria-labelledby="login or sign up" aria-hidden="true" role="dialog">
-  <div class="row">
-    <div class="large-6 columns auth-plain">
-      <div class="signup-panel left-solid">
-        <p class="welcome">Registered Users</p>
-        <form>
-          <div class="row collapse">
-            <div class="small-2  columns">
-              <span class="prefix"><i class="fi-torso-female"></i></span>
-            </div>
-            <div class="small-10  columns">
-              <input type="text" placeholder="username">
-            </div>
-          </div>
-          <div class="row collapse">
-            <div class="small-2 columns ">
-              <span class="prefix"><i class="fi-lock"></i></span>
-            </div>
-            <div class="small-10 columns ">
-              <input type="text" placeholder="password">
-            </div>
-          </div>
-        </form>
-        <a href="#" class="button ">Log In </a>
-      </div>
-    </div>
-
-    <div class="large-6 columns auth-plain">
-    	<div class="signup-panel newusers">
-    		<p class="welcome"> New User?</p>
-    		<p>By creating an account with us, you will be able to move through the checkout process faster, view and track your orders, and more.</p><br>
-    		<a href="#" class="button ">Sign Up</a></br>
-    	</div>
-    </div>
-
-   </div>
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-</div>
-
-    <div class = 'row'>
-      <div class = 'logo' >
-        <img src= "/assets/Gameshelf.png" />
-      </div>
-
-      <ul class='menu'>
+    <nav class='menu'>
+      <h1 class='name'><a class='logo-link' href='/usersgames/random'><i class='fi-die-six'></i>Gameshelf</a></h1>
+      <ul class='inline-list'>
+        <% if user_signed_in? %>
+        <li> <%= link_to 'Board Game Selector', usersgames_random_path %> </li>
         <li> <%= link_to 'My Game List', usersgames_path %> </li>
+        <% end %>
+        <li> <a href='/pages/privacy'>Privacy Policy</a></li>
+      </ul>
+      <ul class='inline-list hide-for-small-only account-action'>
         <% if user_signed_in? %>
         <li> <%= link_to 'Edit Account', edit_user_registration_path %> </li>
         <li> <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete  %> </li>
         <% else %>
         <li> <%= link_to 'Sign Up', new_user_registration_path %> </li>
-        <li> <%= link_to 'Sign In', new_user_session_path  %>
-          <% end %>
+        <% end %>
       </ul>
+    </nav>
 
-      <div class='notice'>
-        <div class='flash'>
-          <%= notice %>
+    <div class='row'>
+      <div class='small-6 small-centered columns'>
+        <% if notice != nil %>
+          <% if notice != '' %>
+          <div data-alert class='alert-box success'>
+            <%= notice %>
+          </div>
+          <% end %>
+        <% end %>
+
+        <% if alert != nil %>
+          <% if alert != '' %>
+          <div data-alert class='alert-box alert'>
+            <%= alert %>
+            <% end %>
+          </div>
+        <% end %>
+
+        <div class='alert'>
         </div>
       </div>
+    </div>
 
-      <div class='alert'>
-        <div class='flash'>
-          <%= alert %>
-        </div>
-      </div>
-
-      <div class='columns'>
+    <div class='row'>
+      <div class='small-12 large-8 small-centered columns'>
         <%= yield %>
       </div>
     </div>

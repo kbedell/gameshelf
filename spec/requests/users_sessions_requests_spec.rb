@@ -13,6 +13,6 @@ describe "GET '/auth/amazon/callback'" do
   end
 
   it 'should redirect to root' do
-    expect(response).to redirect_to usersgames_path
+    expect(response).to redirect_to usersgames_random_path
   end
 end

@@ -18,26 +18,8 @@
 
  @import "foundation_and_overrides";
 
-body {
-  background-color: $background-grey;
-  font-family: "Raleway", sans-serif;
-  font-size: 1.25em;
-}
-
 label {
   font-size: 1em;
-}
-
-a {
-  color: $orange;
-}
-
-a:hover {
-  color: $black;
-}
-
-.alert, .notice {
-  background-color: $orange;
 }
 
 .amazon-login {
@@ -45,11 +27,19 @@ a:hover {
 }
 
 .button {
-  background-color: $orange;
+  background-color: $background-grey;
   font-size: 1em;
+  font-weight: bold;
 }
 
-.button, .menu a {
+.button:hover {
+  background-color: $background-grey;
+  color: $orange;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.menu a {
   color: $white;
   font-weight: bold;
 }
@@ -63,50 +53,60 @@ a:hover {
   padding-top: 15px;
 }
 
+.delete-button {
+  color: $background-grey;
+}
+
+.delete-button:hover {
+  color: $orange;
+}
+
 .flash {
-  color: $white;
   font-weight: bold;
   padding-left: 25px;
 }
 
 .games {
-  font-size: 1.15em;
+  font-size: 1em;
   list-style: none;
+}
+
+.game-info {
+  padding-bottom: 10px;
 }
 
 .logo {
   background-color: $background-grey;
+  padding-top: 15px;
   text-align: center;
-}
-
-.menu {
-  background-color: $orange;
-  padding: 10px 15px;
 }
 
 .page-header {
   text-align: center
 }
 
-.page-header h2 {
+.players {
   display: block;
-  font-family: "Oswald", sans-serif;
+  margin: 0px auto 15px auto;
+  width: 3em;
 }
 
-.site-title {
-  background-image: url("Gameshelf.png");
+.users-game {
+  font-size: 1.5em;
+  text-align: center;
 }
 
-// Third Party
-$background-color: #292c2f;
-$primary-color: #87D37C;
+.users-game:hover {
+  background-color: $grey;
+}
 
+//Third Party
 .row {
   max-width: 100%;
 }
 
 .menu {
-  background-color: $background-color;
+  background-color: $background-grey;
   padding: 1.5rem 3rem;
   height: auto;
 
@@ -116,6 +116,7 @@ $primary-color: #87D37C;
     li {
       float: none;
       display: inline-block;
+      padding: 0 0 0 1rem;
     }
 
     a {
@@ -123,13 +124,13 @@ $primary-color: #87D37C;
       padding-bottom: 0.5rem;
 
       &:hover {
-        color: $primary-color;
+        color: $orange;
         transition: all .3s ease-in-out;
       }
     }
 
-    .active a {
-      color: $primary-color;
+    a.active {
+      color: $orange;
     }
   }
 
@@ -152,13 +153,12 @@ $primary-color: #87D37C;
     }
 
     a:hover {
-      border-bottom: 2px solid $primary-color;
+      border-bottom: 2px solid $orange;
     }
   }
 
   .account-action {
     float: right;
-    margin: -.75rem 0 0 0;
 
     li {
       margin-left: .2rem;
@@ -168,7 +168,7 @@ $primary-color: #87D37C;
 
     a.signup {
       font-weight: bold;
-      background-color: scale-color($background-color, $lightness: 10%);
+      background-color: scale-color($background-grey, $lightness: 10%);
       border-radius: 3px;
     }
   }
@@ -182,11 +182,63 @@ $primary-color: #87D37C;
   color: #fff;
 
   i {
-    color: $primary-color;
+    color: $orange;
     margin-right: 0.5rem;
   }
 
   @media only screen and (min-width: 40.063em) {
     float: left;
   }
+}
+
+//alerts
+
+$primary: #446CB3;
+$secondary: #ADB2BD;
+$info: #89c4f4;
+$alert: #F22613;
+$success: #87D37C;
+$warning: #F89406;
+
+.alert-box {
+  background-position: 2% 7px;
+  background-repeat: no-repeat;
+  background-size: auto 2rem;
+  background-color: #fff;
+  border: 0;
+  min-height: 50px;
+  padding-left: 4rem;
+  text-align: left;
+
+  .close {
+    background: none;
+  }
+
+  &.alert {
+    background-color: #fff;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAARVBMVEX////7y0P7y0P7y0P7y0P7y0P7y0P7y0P7y0P7y0P7y0P7y0P7y0P7y0P7y0NAQECdhUHYsUKGdEG1l0JLSEBuYkHkukPKU8NPAAAADnRSTlMA4EDAoCAQ8IBgkDDQUFItelQAAAC0SURBVHherZBLDsMwCAVD7Nj5gvPr/Y/a0FpGLTibdnbozQJN829agPZu7/CiuxE8C76+T/hiqgruLbjqh5ip/TljZrb3AQuDKYAIYO09L3TBRq/3EHk4shCDEkZkTqITmdGMLIIO7r8FbzfaiDappSNjIkpZcCqyCDo4WAJYkR8prTp4ADSBUCIX9uPY5epL5AJdyBWDRDYFHCWyCiXBObKwrh+nl4g2TiLVhSXW97g0v/MEHIQbCYeFmYAAAAAASUVORK5CYII=);
+    border-top: 1px solid $alert;
+    border-bottom: 1px solid $alert;
+    color: #333;
+  }
+
+  &.info {
+    background-color: #fff;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAADBklEQVR42u3YyWsTURwHcP8aQUWtWlu7JEbtpngQvIqXevDWm1fXehO12BTErdQiVMFQ8ODBusWkmSa1lVrTxdrG0FA9WJtkljfL19/LTDKMibl0EorkwReSCQ8+fN+bl2G2AdhSqYH+P1CpAS0DfXUI+ufzUCfaoQptYMIxsMhRsE/d0L4/BNR0qcnug4y159CmTkOLdkKNdnBQAaNEjkAZ90EOH4YcOQ51dQQVBRnLN6DHuqDFOqGZGEpbaVDICynkAVvoRUVAxuqQE8PjXC7C/AX64KG0gq3ch6sgQ1zkEBtTph2FY8JeApkYKdgCMdgMPTMP10D64kUOsTDtDsw/27FAIge9b4Y8e8EdELS0jTAh5TF2Ow5Q9l0TDDWNTYOMjSkLQREcEAdGCRfvHdFcLgI1EegQtPXY5kFactAE2JDyGHvvONrhILZ81w3QIxNQCEfw2JvYxpRYKrMdSqNLoNSzPMBGTJwEmz4HuSSGMnkWYrgjv1Rm3jZATQ5vHqT//sgRVhtmI8p0NwADbOF6EUaOX4GiZCHGzhAkD2ogUD20XxNw5baXhRN2G2EvR+QwhqFDme91YJgiQfpyCTamkTAHaQm97p1DauIBR1jxWI14CHMNuqZCmbsKmcKYBLkYQzkA9m3APRA/P6TxrvztbCfYkoOoqgKVydTQ5ZIYMdgKQ91wD8SHvj7JAYXb2T5jmqEkhiEnHnNIESb7po72joCK/Ntray8sRD7UBkVeGoBEIQilwYFRUwFU9HmIrdzjCHtpKNJXP48FqSfIfspe2jf+Sj4P2UOMnOKQfCOE6Ye0eMdqZR+yr/fwc8icXA2QmnzCD7pCI+JiH8SFPt4KYXYjO7YTLDFYPZCensu3QakjzC2I8zcJsguZsR3IvNoOfWO2eiA+tJ9jfI9Q+qEkn1JGoCz1UW5D+/HSnFhNUCqVQjwezyUajSIUChW+02/VB42OjqJMaqCtB5qZmUEgEIDf73eEXxMEofogPtLpNHp6euDz+Xhyn+lauUm1tx81UMXzBw5wT9JYWi53AAAAAElFTkSuQmCC);
+  border-top:1px solid $info;
+  border-bottom:1px solid $info;
+  color: #333;
+  }
+
+  &.success {
+    background-color: #fff;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAqFBMVEX////w8PDw8PDw8PDw8PDw8PDw8PDw8PDW1tbn5+ff398PnVjd3d3i4uIPnVjk5OQPnVjg4OAPnVgzqW8PnVgPnVjT09Pw8PDG4NOp1sBjvJHu7u4PmVYqp2ri6+YcomFHsn4bmlzHzsoPnFeuxbl9tJk0n2t/xqSVvqqNzK1ZqYKJuaJVt4c4rHQnnWPl5eXj4+MPm1fe3t6b0bfc3NxBo3TY2NjX19eKj23kAAAAFXRSTlMA8BCwcFCgkP4f3NDnrzCHoM8Qc/Avz3otAAAA9klEQVR4Xq2T2XKDMAwAMRACNGdbyUDus/d9/f+f1VHEiFamfcm+7qIZGTs4IWEcGeswURz6dGIbJCrp0MeC6QTBCADO2Hetokv+vNXbyvnLAc9v8cA+NH4/veAFEr/f7HIe0OJvETMKYhLlLw8fiNinICKxnHHCfr92QY8CcwwAloX41cFjSoElCnBU89pvkeCAeAPH4or89Bp1YG+g5uUOPQEP5wWbgZzjPRDiU1mTmD/wggyvGVspZgCP4rGvjrpYuAWFTP+sounzwPO7n8SnNEBdmGesGZLUV+6V/ZilLt7F+6/95BMxHf71cCZfefbf0zsl3w3QOjVy6QFpAAAAAElFTkSuQmCC);
+    border-top: 1px solid $success;
+    border-bottom:1px solid $success;
+    color: #333;
+    }
+}
+
+.menu .logo-link:hover {
+  border: none;
 }

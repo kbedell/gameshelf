@@ -4,15 +4,12 @@ feature 'User Edits their Account' do
   let(:user)  { FactoryGirl.create(:user) }
 
   before :each do
+    login_as(user, scope: :user)
     visit usersgames_path
-    click_link 'Sign In'
-    fill_in 'Email', with: user.email
-    fill_in 'user_password', with: user.password
-    click_button 'log-in'
+    click_link 'Edit Account'
   end
 
   scenario 'user successfully edits their account info' do
-    click_link 'Edit Account'
     new_email = 'newemail@mail.com'
     new_password = 'newpassword1'
 
@@ -27,7 +24,6 @@ feature 'User Edits their Account' do
   end
 
   scenario 'user submits without updating email' do
-    click_link 'Edit Account'
     click_button 'Update'
 
     expect(page).to have_content("can't be blank")
@@ -35,8 +31,6 @@ feature 'User Edits their Account' do
   end
 
   scenario 'user provides incorrect current password' do
-    click_link 'Edit Account'
-
     fill_in 'Current password', with: 'totallynotmypassword'
     click_button 'Update'
 

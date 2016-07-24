@@ -1,0 +1,118 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.boardgamegeek.com/xmlapi/search?search=tokaido
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - www.boardgamegeek.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.10.1
+      Date:
+      - Fri, 22 Jul 2016 17:06:40 GMT
+      Content-Type:
+      - text/xml; charset="UTF-8"
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - PHP/5.5.37
+      Set-Cookie:
+      - SessionID=b385ef6415b0c582346533f6d3df3e829cd0dcc1; expires=Fri, 22-Jul-2016
+        18:06:40 GMT; Max-Age=3600; path=/; domain=.boardgamegeek.com
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Pragma:
+      - no-cache
+      X-Fastcgi-Cache:
+      - MISS
+    body:
+      encoding: ASCII-8BIT
+      string: "<boardgames termsofuse=\"http://boardgamegeek.com/xmlapi/termsofuse\">\n\t\t\t<boardgame
+        objectid=\"123540\">\n\t\t\t<name primary=\"true\">Tokaido</name>\t\t\t\n\t\t\t\t\t\t\t<yearpublished>2012</yearpublished>\n\t\t\t\t\t</boardgame>\n\t\t\t<boardgame
+        objectid=\"155731\">\n\t\t\t<name primary=\"true\">Tokaido Collector&#039;s
+        Edition</name>\t\t\t\n\t\t\t\t\t\t\t<yearpublished>2015</yearpublished>\n\t\t\t\t\t</boardgame>\n\t\t\t<boardgame
+        objectid=\"186375\">\n\t\t\t<name primary=\"true\">Tokaido Deluxe Edition</name>\t\t\t\n\t\t\t\t\t\t\t<yearpublished>2015</yearpublished>\n\t\t\t\t\t</boardgame>\n\t\t\t<boardgame
+        objectid=\"144384\">\n\t\t\t<name primary=\"true\">Tokaido: Crossroads</name>\t\t\t\n\t\t\t\t\t\t\t<yearpublished>2013</yearpublished>\n\t\t\t\t\t</boardgame>\n\t\t\t<boardgame
+        objectid=\"149772\">\n\t\t\t<name primary=\"true\">Tokaido: Eriku</name>\t\t\t\n\t\t\t\t\t\t\t<yearpublished>2013</yearpublished>\n\t\t\t\t\t</boardgame>\n\t\t\t<boardgame
+        objectid=\"157816\">\n\t\t\t<name primary=\"true\">Tokaido: Felicia Promo
+        Card</name>\t\t\t\n\t\t\t\t\t\t\t<yearpublished>2014</yearpublished>\n\t\t\t\t\t</boardgame>\n\t\t\t<boardgame
+        objectid=\"171503\">\n\t\t\t<name primary=\"true\">Tokaido: Matsuri</name>\t\t\t\n\t\t\t\t\t\t\t<yearpublished>2016</yearpublished>\n\t\t\t\t\t</boardgame>\n\t\t\t<boardgame
+        objectid=\"132479\">\n\t\t\t<name primary=\"true\">Tokaido: The New Encounters</name>\t\t\t\n\t\t\t\t\t\t\t<yearpublished>2012</yearpublished>\n\t\t\t\t\t</boardgame>\n\t</boardgames>\n"
+    http_version: 
+  recorded_at: Fri, 22 Jul 2016 17:06:40 GMT
+- request:
+    method: get
+    uri: https://www.boardgamegeek.com/xmlapi/search?search=King%20of%20Tokyo
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - www.boardgamegeek.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.10.1
+      Date:
+      - Fri, 22 Jul 2016 18:54:17 GMT
+      Content-Type:
+      - text/xml; charset="UTF-8"
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - PHP/5.5.37
+      Set-Cookie:
+      - SessionID=e784695d71c94d4160940fde850c5142874f3afd; expires=Fri, 22-Jul-2016
+        19:54:17 GMT; Max-Age=3600; path=/; domain=.boardgamegeek.com
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Pragma:
+      - no-cache
+      X-Fastcgi-Cache:
+      - MISS
+    body:
+      encoding: ASCII-8BIT
+      string: "<boardgames termsofuse=\"http://boardgamegeek.com/xmlapi/termsofuse\">\n\t\t\t<boardgame
+        objectid=\"190115\">\n\t\t\t<name primary=\"true\">King of New Tokyo</name>\t\t\t\n\t\t\t\t\t\t\t<yearpublished>2015</yearpublished>\n\t\t\t\t\t</boardgame>\n\t\t\t<boardgame
+        objectid=\"70323\">\n\t\t\t<name primary=\"true\">King of Tokyo</name>\t\t\t\n\t\t\t\t\t\t\t<yearpublished>2011</yearpublished>\n\t\t\t\t\t</boardgame>\n\t\t\t<boardgame
+        objectid=\"98833\">\n\t\t\t<name primary=\"true\">King of Tokyo Promo Cards</name>\t\t\t\n\t\t\t\t\t\t\t<yearpublished>2011</yearpublished>\n\t\t\t\t\t</boardgame>\n\t\t\t<boardgame
+        objectid=\"132530\">\n\t\t\t<name primary=\"true\">King of Tokyo: Garfield&#039;s
+        Gift Promo Card</name>\t\t\t\n\t\t\t\t\t\t\t<yearpublished>2012</yearpublished>\n\t\t\t\t\t</boardgame>\n\t\t\t<boardgame
+        objectid=\"147183\">\n\t\t\t<name primary=\"true\">King of Tokyo: Halloween</name>\t\t\t\n\t\t\t\t\t\t\t<yearpublished>2013</yearpublished>\n\t\t\t\t\t</boardgame>\n\t\t\t<boardgame
+        objectid=\"127067\">\n\t\t\t<name primary=\"true\">King of Tokyo: Power Up!</name>\t\t\t\n\t\t\t\t\t\t\t<yearpublished>2012</yearpublished>\n\t\t\t\t\t</boardgame>\n\t\t\t<boardgame
+        objectid=\"154945\">\n\t\t\t<name primary=\"true\">King of Tokyo: The Horde
+        Promo Card</name>\t\t\t\n\t\t\t\t\t\t\t<yearpublished>2014</yearpublished>\n\t\t\t\t\t</boardgame>\n\t</boardgames>\n"
+    http_version: 
+  recorded_at: Fri, 22 Jul 2016 18:54:17 GMT
+recorded_with: VCR 3.0.1

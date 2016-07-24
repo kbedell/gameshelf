@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160720174759) do
+ActiveRecord::Schema.define(version: 20160724193108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20160720174759) do
     t.integer "min_playtime", null: false
     t.integer "year",         null: false
     t.integer "bggid"
+    t.string  "thumbnail"
   end
 
   add_index "games", ["name", "year"], name: "index_games_on_name_and_year", unique: true, using: :btree

@@ -2,7 +2,6 @@ require 'rubygems'
 require 'nokogiri'
 
 class BGGGame
-
   def self.create_games_list(page)
     games = []
     boardgames = page.css('boardgame')
@@ -37,6 +36,7 @@ class BGGGame
         boardgame.description = page.css('description').text
       end
 
+      boardgame.thumbnail = page.css('thumbnail').text
       boardgame.max_players = page.css('maxplayers').text
       boardgame.min_players = page.css('minplayers').text
       boardgame.max_playtime = page.css('maxplaytime').text
@@ -50,14 +50,14 @@ class BGGGame
       usersgame.game_id = boardgame.id
       usersgame.save
 
-      return {game: {name: page.css("name[primary='true']").text, year: page.css('yearpublished').text}}
+      return {game: {name: page.css("name[primary='true']").text, year: page.css('yearpublished').text, id: boardgame.id}, thumbnail: page.css('yearpublished').text}
     else
       usersgame = Usersgame.new()
       usersgame.user_id = user_id
       usersgame.game_id = game.id
       usersgame.save
 
-      return {game: {name: game.name, year: game.year}}
+      return {game: {name: game.name, year: game.year, id: game.id, thumbnail: game.thumbnail}}
     end
   end
 end
