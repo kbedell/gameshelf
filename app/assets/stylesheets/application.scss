@@ -39,11 +39,6 @@ label {
   font-weight: bold;
 }
 
-.menu a {
-  color: $white;
-  font-weight: bold;
-}
-
 .centered-text {
   text-align: center;
 }
@@ -87,7 +82,7 @@ label {
 
 .players {
   display: block;
-  margin: 0px auto 15px auto;
+  margin: 0 auto 15px;
   width: 3em;
 }
 
@@ -107,6 +102,8 @@ label {
 
 .menu {
   background-color: $background-grey;
+  color: $white;
+  font-weight: bold;
   height: auto;
   padding: 1.5rem 3rem;
 
@@ -116,11 +113,7 @@ label {
     li {
       display: inline-block;
       float: none;
-      padding: 0 0 0 1rem;
-    }
-
-    .logo-link:hover {
-      border: 0;
+      padding-left: 1rem;
     }
 
     a {
@@ -129,12 +122,11 @@ label {
 
       &:hover {
         color: $orange;
-        transition: all .3s ease-in-out;
       }
-    }
 
-    a.active {
-      color: $orange;
+      &.active {
+        color: $orange;
+      }
     }
   }
 
@@ -143,22 +135,26 @@ label {
     right: 3%;
     top: 3%;
 
-    a , i {
+    a {
+      color: $white;
+    }
+
+    i {
       color: $white;
     }
   }
 
   @media only screen and (min-width: 40.063em) {
-  height: 5rem;
+    height: 5rem;
 
-  .inline-list {
-    float: left;
-    margin: 0 0 0 1.5rem;
-    }
+    .inline-list {
+      float: left;
+      margin-left: 1.5rem;
+      }
 
-    a:hover {
-      border-bottom: 2px solid $orange;
-    }
+      a:hover {
+        border-bottom: 2px solid $orange;
+      }
   }
 
   .account-action {
@@ -171,6 +167,10 @@ label {
     a {
       padding: 0.75rem 1rem;
     }
+  }
+
+  .logo-link:hover {
+    border: 0;
   }
 }
 
