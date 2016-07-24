@@ -164,25 +164,21 @@ label {
   .account-action {
     float: right;
 
-    li {
+    .account-action-item {
       margin-left: .2rem;
     }
 
-    a { padding: 0.75rem 1rem;}
-
-    a.signup {
-      background-color: scale-color($background-grey, $lightness: 10%);
-      border-radius: 3px;
-      font-weight: bold;
+    a {
+      padding: 0.75rem 1rem;
     }
   }
 }
 
 .name {
   color: $white;
-  font-size:  1.5rem;
+  font-size: 1.5rem;
   line-height: 1;
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
   text-align: center;
 
   i {
@@ -197,10 +193,10 @@ label {
 
 //alerts
 .alert-box {
+  background-color: $white;
   background-position: 2% 7px;
   background-repeat: no-repeat;
   background-size: auto 2rem;
-  background-color: $white;
   border: 0;
   min-height: 50px;
   padding-left: 4rem;
