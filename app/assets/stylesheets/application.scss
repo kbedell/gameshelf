@@ -1,22 +1,22 @@
 /*
- * This is a manifest file that"ll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin"s vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You"re free to add application-wide styles to this file and they"ll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- *= require foundation_and_overrides
+* This is a manifest file that"ll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin"s vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You"re free to add application-wide styles to this file and they"ll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any styles
+* defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+* file per style scope.
+*
+*= require_tree .
+*= require_self
+*= require foundation_and_overrides
 
- */
+*/
 
- @import "foundation_and_overrides";
+@import "foundation_and_overrides";
 
 label {
   font-size: 1em;
@@ -106,72 +106,76 @@ label {
   font-weight: bold;
   height: auto;
   padding: 1.5rem 3rem;
+}
+
+.inline-list {
+
+  li {
+    display: inline-block;
+    float: none;
+    padding-left: 1rem;
+  }
+
+  a {
+    color: $white;
+    padding-bottom: 0.5rem;
+
+    &:hover {
+      color: $orange;
+    }
+
+    &.active {
+      color: $orange;
+    }
+  }
+}
+
+.account {
+  position: absolute;
+  right: 3%;
+  top: 3%;
+
+  a {
+    color: $white;
+  }
+
+  i {
+    color: $white;
+  }
+}
+
+@media only screen and (min-width: 40.063em) {
+  height: 5rem;
 
   .inline-list {
-    text-align: center;
-
-    li {
-      display: inline-block;
-      float: none;
-      padding-left: 1rem;
-    }
-
-    a {
-      color: $white;
-      padding-bottom: 0.5rem;
-
-      &:hover {
-        color: $orange;
-      }
-
-      &.active {
-        color: $orange;
-      }
-    }
+    float: left;
+    margin-left: 1.5rem;
   }
 
-  .account {
-    position: absolute;
-    right: 3%;
-    top: 3%;
+  a:hover {
+    border-bottom: 2px solid $orange;
+  }
+}
 
-    a {
-      color: $white;
-    }
+.account-action {
+  float: right;
+  margin-top: -42px;
 
-    i {
-      color: $white;
-    }
+  .account-action-item {
+    margin-left: .2rem;
   }
 
-  @media only screen and (min-width: 40.063em) {
-    height: 5rem;
-
-    .inline-list {
-      float: left;
-      margin-left: 1.5rem;
-      }
-
-      a:hover {
-        border-bottom: 2px solid $orange;
-      }
+  a {
+    padding: 0.75rem 1rem;
   }
+}
 
-  .account-action {
-    float: right;
+.logo-link {
+  color: $white;
+}
 
-    .account-action-item {
-      margin-left: .2rem;
-    }
-
-    a {
-      padding: 0.75rem 1rem;
-    }
-  }
-
-  .logo-link:hover {
-    border: 0;
-  }
+.logo-link:hover {
+  border: 0;
 }
 
 .name {
@@ -228,5 +232,5 @@ label {
     border-bottom: 1px solid $success;
     border-top: 1px solid $success;
     color: $dark-grey;
-    }
+  }
 }
