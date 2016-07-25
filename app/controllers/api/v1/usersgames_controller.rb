@@ -22,8 +22,17 @@ class Api::V1::UsersgamesController < ApiController
 
         decode = JSON.parse(response.body)
 
-        if User.find_by(uid: decode["user_id"])
-          render json: { game: "I'm working!" }, status: :ok
+        user = User.find_by(uid: decode["user_id"])
+
+        if user
+          all_games = user.games
+
+          if filtered_games != []
+            game = Usersgame.random_game(filtered_games)
+            render json: {game: game}, status: :ok
+          else
+            render json: {game: 'No Game'}, status: :ok
+          end
         else
           render json: {game: "Not a user in our system"}
         end
