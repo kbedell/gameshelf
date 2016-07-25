@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :usersgames, only: [:index, :create, :show, :destroy]
+      resources :usersgames, only: [:index, :show, :destroy]
       get '/usersgames/random', to: 'usergames#show'
       namespace :boardgamegeek do
         resources :search, only: [:create]

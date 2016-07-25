@@ -1,4 +1,8 @@
+require 'json'
+
 class Usersgame < ActiveRecord::Base
+  include HTTParty
+
   belongs_to :game
   belongs_to :user
 
@@ -24,5 +28,27 @@ class Usersgame < ActiveRecord::Base
 
   def self.random_game(games)
     games.sample
+  end
+
+  def self.verify_user(authToken)
+    url = 'https://api.amazon.com/auth/o2/tokeninfo?access_token=' + authToken
+
+    response = HTTParty.get(url)
+
+    decode = JSON.parse(response.body)
+
+    if decode['aud'] != ENV['AMAZON_CLIENT_ID']
+      # the access token does not belong to us
+      return false
+    else
+      url = 'https://api.amazon.com/user/profile'
+      options = { headers: {"Authorization" => "Bearer #{authToken}" }}
+
+      response = HTTParty.get(url, options)
+
+      decode = JSON.parse(response.body)
+
+      return decode["user_id"]
+    end
   end
 end
