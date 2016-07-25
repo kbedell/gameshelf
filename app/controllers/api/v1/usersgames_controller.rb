@@ -1,11 +1,13 @@
+require 'json'
+
 class Api::V1::UsersgamesController < ApiController
   include HTTParty
 
   def create
     puts "Params " + params
-    puts "Response Header " + response.header
+    puts "Response Header " + request.headers["accessToken"]
 
-    request_header = params['session']['user']['accessToken']
+    request_header = request.headers["accessToken"]
 
     url = 'https://api.amazon.com/auth/o2/tokeninfo?access_token=' + request_header
 
