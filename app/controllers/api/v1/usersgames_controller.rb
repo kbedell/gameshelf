@@ -42,7 +42,6 @@ class Api::V1::UsersgamesController < ApiController
     end
   end
 
-  before_action :authenticate_user!
   def index
     games = User.find(current_user.id).games.order(name: :asc)
 
