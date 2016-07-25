@@ -22,11 +22,12 @@ class Api::V1::UsersgamesController < ApiController
 
         decode = JSON.parse(response.body)
 
-        user = User.find_by(uid: decode["user_id"])
-
-        if user
+        if User.find_by(uid: decode["user_id"])
+          user = User.find_by(uid: decode["user_id"])
           all_games = user.games
 
+          puts params['players']['players']
+          puts params
           filtered_games = Usersgame.filtered_games(params['players']['players'], all_games)
           if filtered_games != []
             game = Usersgame.random_game(filtered_games)
