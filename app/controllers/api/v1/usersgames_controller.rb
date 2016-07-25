@@ -4,9 +4,6 @@ class Api::V1::UsersgamesController < ApiController
   include HTTParty
 
   def create
-    puts "Params " + params.to_s
-    puts "Response Header " + request.headers["accessToken"].to_s
-
     request_header = request.headers["accessToken"]
 
     url = 'https://api.amazon.com/auth/o2/tokeninfo?access_token=' + request_header
@@ -30,7 +27,7 @@ class Api::V1::UsersgamesController < ApiController
         user = User.find_by(uid: decode["user_id"])
         all_games = user.games
 
-        filtered_games = Usersgame.filtered_games(params['players']['players'], all_games)
+        filtered_games = Usersgame.filtered_games(request.headers["players"], all_games)
         if filtered_games != []
           game = Usersgame.random_game(filtered_games)
           render json: {game: game}, status: :ok
