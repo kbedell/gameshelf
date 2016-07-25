@@ -27,6 +27,7 @@ class Api::V1::UsersgamesController < ApiController
         if user
           all_games = user.games
 
+          filtered_games = Usersgame.filtered_games(params['players']['players'], all_games)
           if filtered_games != []
             game = Usersgame.random_game(filtered_games)
             render json: {game: game}, status: :ok
