@@ -2,9 +2,10 @@ import React from 'react';
 
 const Game = props => {
   return (
-    <div>
-    <input type="radio" name="Game" value={props.id} onChange={props.handleRadioChange} /> {props.name} ({props.year})
-    </div>
+    <label>
+      <input type="radio" className="game" id={props.id} value={props.id} checked={props.checked} onChange={props.handleRadioChange} />
+      {props.name} ({props.year})
+   </label>
   )
 };
 
