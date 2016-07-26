@@ -12,6 +12,7 @@ gem 'nokogiri'
 gem 'foundation-rails'
 gem 'omniauth'
 gem 'omniauth-amazon'
+gem 'httparty'
 
 group :development, :test do
   gem 'capybara'
