@@ -105,6 +105,7 @@ class GameManager extends Component {
         data={this.state.data}
         handleAddGameClick={this.handleAddGameClick}
         handleRadioChange={this.handleRadioChange}
+        selectedGame={this.state.selectedGame}
       />
       <UsersGamesList
         games={this.state.games}

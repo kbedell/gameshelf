@@ -2,7 +2,12 @@ import React from 'react';
 import Game from './Game';
 
 const GameList = props => {
+  var checked = false;
   let games = props.data.map(game => {
+    if(game.id === props.selectedGame) {
+      var checked = true;
+    }
+
     return (
       <Game
         key={game.id}
@@ -10,6 +15,7 @@ const GameList = props => {
         id={game.id}
         year={game.year}
         handleRadioChange={props.handleRadioChange}
+        checked={checked}
       />
     );
   });
@@ -23,7 +29,9 @@ const GameList = props => {
   return (
   <div>
     <form onSubmit={props.handleAddGameClick}>
+    <fieldset>
       {games}
+    </fieldset>
       {submitButton()}
     </form>
   </div>
