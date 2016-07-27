@@ -48,7 +48,7 @@ class GameManager extends Component {
   handleAddGameClick(event){
     event.preventDefault();
     if(this.state.selectedGame == ''){
-      $('.alert').append ('Please select a game to add');
+      $('.alert').append ("<div data-alert class='alert-box alert'>Please select a game</div>");
     } else  {
       $.ajax({
         method: 'POST',
@@ -57,9 +57,13 @@ class GameManager extends Component {
         data: JSON.stringify({'game': { 'name': this.state.selectedGame }})
       })
       .done(data => {
-        $('.alert').append ("<div data-alert class='alert-box success'>Game added successfully</div>");
-        this.loadGames();
-        this.setState( {data: []});
+        if(data.game.name = 'game already exists') {
+          $('.alert').append ("<div data-alert class='alert-box alert'>You already own this game</div>");
+        } else {
+          $('.alert').append ("<div data-alert class='alert-box success'>Game added successfully</div>");
+          this.loadGames();
+          this.setState( {data: []});
+        }
       });
     }
   }
