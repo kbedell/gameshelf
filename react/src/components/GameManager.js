@@ -64,8 +64,8 @@ class GameManager extends Component {
         } else {
           $('.alert-box').remove();
           $('.alert').append("<div data-alert class='alert-box success'><div class='alert-text'>Game added successfully</div></div>");
-          this.loadGames();
           this.setState( {data: []});
+          this.loadGames();
         }
       });
     }
