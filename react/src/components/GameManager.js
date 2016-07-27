@@ -47,9 +47,11 @@ class GameManager extends Component {
 
   handleAddGameClick(event){
     event.preventDefault();
-    if(this.state.selectedGame == ''){
-      $('.alert').append ("<div data-alert class='alert-box alert'>Please select a game</div>");
-    } else  {
+    if(this.state.selectedGame === ''){
+      $('.alert-box').remove();
+      $('.alert').append("<div data-alert class='alert-box alert'><div class='alert-text'>Please select a game</div></div>");
+    } else {
+      alert('The if has fired!');
       $.ajax({
         method: 'POST',
         contentType: 'application/json',
@@ -57,10 +59,12 @@ class GameManager extends Component {
         data: JSON.stringify({'game': { 'name': this.state.selectedGame }})
       })
       .done(data => {
-        if(data.game.name = 'game already exists') {
-          $('.alert').append ("<div data-alert class='alert-box alert'>You already own this game</div>");
+        if(data.game.name === 'game already exists') {
+          $('.alert-box').remove();
+          $('.alert').append("<div data-alert class='alert-box alert'><div class='alert-text'>You already own this game</div></div>");
         } else {
-          $('.alert').append ("<div data-alert class='alert-box success'>Game added successfully</div>");
+          $('.alert-box').remove();
+          $('.alert').append("<div data-alert class='alert-box success'><div class='alert-text'>Game added successfully</div></div>");
           this.loadGames();
           this.setState( {data: []});
         }
@@ -70,8 +74,9 @@ class GameManager extends Component {
 
   handleSearchClick(event){
     event.preventDefault();
-    if(this.state.name == ''){
-      $('.alert').append ("<div data-alert class='alert-box alert'>Please enter something in the search field</div>");
+    $('.alert-box').remove();
+    if(this.state.name === ''){
+      $('.alert').append("<div data-alert class='alert-box alert'><div class='alert-text'>Please enter something in the search field</div></div>");
     } else  {
       $.ajax({
         method: 'POST',
@@ -81,7 +86,10 @@ class GameManager extends Component {
       })
       .done(data => {
         this.setState( {data: data.games} );
-        $( '.flash' ).remove();
+        $( '.alert-box' ).remove();
+        if(this.state.games.length === 0) {
+        $('.alert').append("<div data-alert class='alert-box alert'><div class='alert-text'>Sorry, no games found!</div></div>");
+        }
       });
     }
   }
@@ -92,7 +100,7 @@ class GameManager extends Component {
       url: '/api/v1/usersgames/' + id
     })
     .done((data) => {
-      $('.alert').append ("<div data-alert class='alert-box success'>Game deleted!</div>");
+      $('.alert').append ("<div data-alert class='alert-box success'><div class='alert-text'>Game deleted!</div></div>");
       $( '#' + id ).remove();
     });
   }
