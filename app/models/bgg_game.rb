@@ -52,12 +52,19 @@ class BGGGame
 
       return {game: {name: page.css("name[primary='true']").text, year: page.css('yearpublished').text, id: boardgame.id}, thumbnail: page.css('yearpublished').text}
     else
-      usersgame = Usersgame.new()
-      usersgame.user_id = user_id
-      usersgame.game_id = game.id
-      usersgame.save
+      user = User.find(user_id)
+      games = user.games
 
-      return {game: {name: game.name, year: game.year, id: game.id, thumbnail: game.thumbnail}}
+      if games.include?(game)
+        return {game: {name: 'game already exists', year: '', id: '', thumbnail: ''}}
+      else
+        usersgame = Usersgame.new()
+        usersgame.user_id = user_id
+        usersgame.game_id = game.id
+        usersgame.save
+
+        return {game: {name: game.name, year: game.year, id: game.id, thumbnail: game.thumbnail}}
+      end
     end
   end
 end
