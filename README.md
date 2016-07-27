@@ -3,4 +3,3 @@
 ![Coverage Status](https://coveralls.io/repos/kbedell/gameshelf/badge.png)
 
 # Gameshelf
-Your app description, here.

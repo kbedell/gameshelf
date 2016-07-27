@@ -51,7 +51,6 @@ class GameManager extends Component {
       $('.alert-box').remove();
       $('.alert').append("<div data-alert class='alert-box alert'><div class='alert-text'>Please select a game</div></div>");
     } else {
-      alert('The if has fired!');
       $.ajax({
         method: 'POST',
         contentType: 'application/json',
