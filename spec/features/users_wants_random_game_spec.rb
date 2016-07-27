@@ -35,7 +35,7 @@ feature 'Random Game' do
     fill_in 'players', with: 'A7'
     click_button 'Choose a Game for Me'
 
-    expect(page).to have_content('Please enter the number of players or leave the field blank to not specify player number')
+    expect(page).to have_content('Please enter a number')
   end
 
   scenario 'user should not see games not on their list', js:true do
