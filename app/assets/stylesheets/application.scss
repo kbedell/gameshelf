@@ -21,7 +21,7 @@
 @import "top_bar";
 
 body {
-  background: url('paper.png');
+  background: url("paper.png");
   font-family: 'Raleway', sans-serif;
 }
 
@@ -39,10 +39,6 @@ h3 {
 
 h4 {
   font-family: 'Raleway', sans-serif;
-}
-
-.radio-game {
-  color: $black;
 }
 
 label {
