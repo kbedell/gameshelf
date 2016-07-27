@@ -1,11 +1,11 @@
 /*
-* This is a manifest file that"ll be compiled into application.css, which will include all the files
+* This is a manifest file that'll be compiled into application.css, which will include all the files
 * listed below.
 *
 * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
-* or any plugin"s vendor/assets/stylesheets directory can be referenced here using a relative path.
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
 *
-* You"re free to add application-wide styles to this file and they"ll appear at the bottom of the
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
 * compiled file so the styles you add here take precedence over styles defined in any styles
 * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
 * file per style scope.
@@ -17,9 +17,36 @@
 */
 
 @import "foundation_and_overrides";
+@import "alerts";
+@import "top_bar";
+
+body {
+  background: url("paper.png");
+  font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+  font-family: 'Raleway', sans-serif;
+}
+
+h2 {
+  font-family: 'Raleway', sans-serif;
+}
+
+h3 {
+  font-family: 'Raleway', sans-serif;
+}
+
+h4 {
+  font-family: 'Raleway', sans-serif;
+}
 
 label {
   font-size: 1em;
+}
+
+.alert-text {
+  padding-top: 12px;
 }
 
 .amazon-login {
@@ -56,18 +83,15 @@ label {
   color: $orange;
 }
 
-.flash {
-  font-weight: bold;
-  padding-left: 25px;
-}
-
 .games {
   font-size: 1em;
   list-style: none;
+  padding-top: 15px;
 }
 
 .game-info {
-  padding-bottom: 10px;
+  font-size: 0.80em;
+  padding-bottom: 15px;
 }
 
 .logo {
@@ -83,7 +107,14 @@ label {
 .players {
   display: block;
   margin: 0 auto 15px;
+  text-align: center;
   width: 3em;
+}
+
+.thumbnail {
+  border-radius: 50%;
+  height: 158px;
+  width: 158px;
 }
 
 .users-game {
@@ -93,123 +124,7 @@ label {
 
 .users-game:hover {
   background-color: $grey;
-}
-
-//Third-party Menu
-.row {
-  max-width: 100%;
-}
-
-.menu {
-  background-color: $background-grey;
-  color: $white;
-  font-weight: bold;
-  height: auto;
-  padding: 1.5rem 3rem;
-}
-
-.inline-list {
-  display: inline-block;
-
-  li {
-    display: inline-block;
-    float: none;
-    padding-left: 1rem;
-  }
-
-  a {
-    color: $white;
-    padding-bottom: 0.5rem;
-
-    &:hover {
-      color: $orange;
-    }
-
-    &.active {
-      color: $orange;
-    }
-  }
-}
-
-@media only screen and (min-width: 40.063em) {
-  height: 5rem;
-
-  .inline-list {
-    float: left;
-    margin-left: 1.5rem;
-  }
-
-  a:hover {
-    border-bottom: 2px solid $orange;
-  }
-}
-
-.account-action {
-  float: right;
-}
-
-.logo-link {
-  color: $white;
-}
-
-.logo-link:hover {
-  border: 0;
-  color: $white;
-}
-
-.name {
-  color: $white;
-  font-size: 1.5rem;
-  line-height: 1;
-  margin: 0 0 1rem;
-  text-align: center;
-
-  i {
-    color: $orange;
-    margin-right: 0.5rem;
-  }
-
-  @media only screen and (min-width: 40.063em) {
-    float: left;
-  }
-}
-
-//alerts
-.alert-box {
-  background-color: $white;
-  background-position: 2% 7px;
-  background-repeat: no-repeat;
-  background-size: auto 2rem;
-  border: 0;
-  min-height: 50px;
-  padding-left: 4rem;
-  text-align: left;
-
-  .close {
-    background: none;
-  }
-
-  &.alert {
-    background-color: $white;
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAARVBMVEX////7y0P7y0P7y0P7y0P7y0P7y0P7y0P7y0P7y0P7y0P7y0P7y0P7y0P7y0NAQECdhUHYsUKGdEG1l0JLSEBuYkHkukPKU8NPAAAADnRSTlMA4EDAoCAQ8IBgkDDQUFItelQAAAC0SURBVHherZBLDsMwCAVD7Nj5gvPr/Y/a0FpGLTibdnbozQJN829agPZu7/CiuxE8C76+T/hiqgruLbjqh5ip/TljZrb3AQuDKYAIYO09L3TBRq/3EHk4shCDEkZkTqITmdGMLIIO7r8FbzfaiDappSNjIkpZcCqyCDo4WAJYkR8prTp4ADSBUCIX9uPY5epL5AJdyBWDRDYFHCWyCiXBObKwrh+nl4g2TiLVhSXW97g0v/MEHIQbCYeFmYAAAAAASUVORK5CYII=);
-    border-bottom: 1px solid $alert;
-    border-top: 1px solid $alert;
-    color: $dark-grey;
-  }
-
-  &.info {
-    background-color: $white;
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAADBklEQVR42u3YyWsTURwHcP8aQUWtWlu7JEbtpngQvIqXevDWm1fXehO12BTErdQiVMFQ8ODBusWkmSa1lVrTxdrG0FA9WJtkljfL19/LTDKMibl0EorkwReSCQ8+fN+bl2G2AdhSqYH+P1CpAS0DfXUI+ufzUCfaoQptYMIxsMhRsE/d0L4/BNR0qcnug4y159CmTkOLdkKNdnBQAaNEjkAZ90EOH4YcOQ51dQQVBRnLN6DHuqDFOqGZGEpbaVDICynkAVvoRUVAxuqQE8PjXC7C/AX64KG0gq3ch6sgQ1zkEBtTph2FY8JeApkYKdgCMdgMPTMP10D64kUOsTDtDsw/27FAIge9b4Y8e8EdELS0jTAh5TF2Ow5Q9l0TDDWNTYOMjSkLQREcEAdGCRfvHdFcLgI1EegQtPXY5kFactAE2JDyGHvvONrhILZ81w3QIxNQCEfw2JvYxpRYKrMdSqNLoNSzPMBGTJwEmz4HuSSGMnkWYrgjv1Rm3jZATQ5vHqT//sgRVhtmI8p0NwADbOF6EUaOX4GiZCHGzhAkD2ogUD20XxNw5baXhRN2G2EvR+QwhqFDme91YJgiQfpyCTamkTAHaQm97p1DauIBR1jxWI14CHMNuqZCmbsKmcKYBLkYQzkA9m3APRA/P6TxrvztbCfYkoOoqgKVydTQ5ZIYMdgKQ91wD8SHvj7JAYXb2T5jmqEkhiEnHnNIESb7po72joCK/Ntray8sRD7UBkVeGoBEIQilwYFRUwFU9HmIrdzjCHtpKNJXP48FqSfIfspe2jf+Sj4P2UOMnOKQfCOE6Ye0eMdqZR+yr/fwc8icXA2QmnzCD7pCI+JiH8SFPt4KYXYjO7YTLDFYPZCensu3QakjzC2I8zcJsguZsR3IvNoOfWO2eiA+tJ9jfI9Q+qEkn1JGoCz1UW5D+/HSnFhNUCqVQjwezyUajSIUChW+02/VB42OjqJMaqCtB5qZmUEgEIDf73eEXxMEofogPtLpNHp6euDz+Xhyn+lauUm1tx81UMXzBw5wT9JYWi53AAAAAElFTkSuQmCC);
-    border-bottom: 1px solid $info;
-    border-top: 1px solid $info;
-    color: $dark-grey;
-  }
-
-  &.success {
-    background-color: $white;
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAqFBMVEX////w8PDw8PDw8PDw8PDw8PDw8PDw8PDW1tbn5+ff398PnVjd3d3i4uIPnVjk5OQPnVjg4OAPnVgzqW8PnVgPnVjT09Pw8PDG4NOp1sBjvJHu7u4PmVYqp2ri6+YcomFHsn4bmlzHzsoPnFeuxbl9tJk0n2t/xqSVvqqNzK1ZqYKJuaJVt4c4rHQnnWPl5eXj4+MPm1fe3t6b0bfc3NxBo3TY2NjX19eKj23kAAAAFXRSTlMA8BCwcFCgkP4f3NDnrzCHoM8Qc/Avz3otAAAA9klEQVR4Xq2T2XKDMAwAMRACNGdbyUDus/d9/f+f1VHEiFamfcm+7qIZGTs4IWEcGeswURz6dGIbJCrp0MeC6QTBCADO2Hetokv+vNXbyvnLAc9v8cA+NH4/veAFEr/f7HIe0OJvETMKYhLlLw8fiNinICKxnHHCfr92QY8CcwwAloX41cFjSoElCnBU89pvkeCAeAPH4or89Bp1YG+g5uUOPQEP5wWbgZzjPRDiU1mTmD/wggyvGVspZgCP4rGvjrpYuAWFTP+sounzwPO7n8SnNEBdmGesGZLUV+6V/ZilLt7F+6/95BMxHf71cCZfefbf0zsl3w3QOjVy6QFpAAAAAElFTkSuQmCC);
-    border-bottom: 1px solid $success;
-    border-top: 1px solid $success;
-    color: $dark-grey;
-  }
+  border-radius: 5%;
+  margin-top: -10px;
+  padding-top: 10px;
 }

@@ -1,0 +1,84 @@
+@import "colors";
+
+.account-action {
+  float: right;
+}
+
+.row {
+  max-width: 100%;
+}
+
+.menu {
+  background-color: $background-grey;
+  color: $white;
+  font-size: 1.1em;
+  font-weight: bold;
+  height: auto;
+  padding-bottom: 0.5em;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 1.5rem;
+}
+
+.inline-list {
+  display: inline-block;
+
+  li {
+    display: inline-block;
+    float: none;
+    padding-left: 1rem;
+  }
+
+  a {
+    color: $white;
+    padding-bottom: 0.5rem;
+
+    &:hover {
+      color: $orange;
+    }
+
+    &.active {
+      color: $orange;
+    }
+  }
+}
+
+@media only screen and (min-width: 40.063em) {
+  height: 5rem;
+
+  .inline-list {
+    float: left;
+    margin-left: 1.5rem;
+  }
+
+  a:hover {
+    border-bottom: 2px solid $orange;
+  }
+}
+
+.logo-link {
+  color: $white;
+  font-family: 'Raleway', sans-serif;
+}
+
+.logo-link:hover {
+  border: 0;
+  color: $white;
+}
+
+.name {
+  color: $white;
+  font-size: 1.5rem;
+  line-height: 1;
+  margin: 0 0 1rem;
+  text-align: center;
+
+  i {
+    color: $orange;
+    margin-right: 0.5rem;
+  }
+
+  @media only screen and (min-width: 40.063em) {
+    float: left;
+  }
+}

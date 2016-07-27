@@ -22,9 +22,9 @@ class GameManager extends Component {
   handleButtonClick(event) {
     event.preventDefault();
     let regex = /[a-zA-Z]/;
+    $('.alert-box').remove();
     if(this.state.players.match(regex)) {
-      $('.alert-box').remove();
-      $('.alert').append ("<div div data-alert class='alert-box alert'>Please enter the number of players or leave the field blank to not specify player number</div>");
+      $('.alert').append ("<div div data-alert class='alert-box alert'><div class='alert-text'>Please enter a number</div></div>");
     } else {
       $.ajax({
         method: 'GET',

@@ -1,0 +1,17 @@
+@import "colors";
+
+.radio-game {
+  display: none;
+}
+
+.active {
+  color: $orange;
+}
+
+.btn {
+  font-size: 1.25em;
+}
+
+.btn-group-vertical {
+  padding-bottom: 15px;
+}
