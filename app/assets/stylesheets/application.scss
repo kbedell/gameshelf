@@ -16,20 +16,32 @@
 
 */
 
-@import 'foundation_and_overrides';
-@import 'alerts';
-@import 'top_bar';
+@import "foundation_and_overrides";
+@import "alerts";
+@import "top_bar";
 
 body {
   background: url('paper.png');
   font-family: 'Raleway', sans-serif;
 }
 
-h1, h2, h3, h4 {
+h1 {
   font-family: 'Raleway', sans-serif;
 }
 
-input[type='radio'] {
+h2 {
+  font-family: 'Raleway', sans-serif;
+}
+
+h3 {
+  font-family: 'Raleway', sans-serif;
+}
+
+h4 {
+  font-family: 'Raleway', sans-serif;
+}
+
+.radio-game {
   color: $black;
 }
 
@@ -104,9 +116,9 @@ label {
 }
 
 .thumbnail {
-  width: 158px;
-  height: 158px;
   border-radius: 50%;
+  height: 158px;
+  width: 158px;
 }
 
 .users-game {
@@ -117,6 +129,6 @@ label {
 .users-game:hover {
   background-color: $grey;
   border-radius: 5%;
-  padding-top: 10px;
   margin-top: -10px;
+  padding-top: 10px;
 }
