@@ -22,14 +22,14 @@ const GameList = props => {
 
   let submitButton = () => {
     if(props.data.length > 0){
-      return ( <input type="submit" className='button' value="Add Game to my Library" /> )
+      return ( <input type='submit' className='button' value='Add Game to my Library' /> );
     }
-  };
+  }
 
   return (
   <div>
     <form onSubmit={props.handleAddGameClick}>
-    <fieldset>
+    <fieldset className='btn-group-vertical'>
       {games}
     </fieldset>
       {submitButton()}

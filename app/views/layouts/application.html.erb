@@ -34,12 +34,14 @@
       </ul>
     </nav>
 
-    <div class='row'>
+    <div class='row alerts'>
       <div class='small-6 small-centered columns'>
         <% if notice != nil %>
           <% if notice != '' %>
           <div data-alert class='alert-box success'>
-            <%= notice %>
+            <div class='alert-text'>
+              <%= notice %>
+            </div>
           </div>
           <% end %>
         <% end %>
@@ -47,7 +49,7 @@
         <% if alert != nil %>
           <% if alert != '' %>
           <div data-alert class='alert-box alert'>
-            <%= alert %>
+              <%= alert %>
             <% end %>
           </div>
         <% end %>
