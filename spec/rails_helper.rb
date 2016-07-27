@@ -44,7 +44,6 @@ Capybara::Webkit.configure do |config|
    config.allow_url("https://fonts.googleapis.com/css?family=Oswald|Raleway")
    config.allow_url("https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css")
    config.allow_url("fonts.googleapis.com")
-   config.allow_url("https://fonts.googleapis.com/css?family=Oswald%7CRaleway")
  end
 
  Capybara.register_driver :poltergeist_with_blacklist do |app|
@@ -52,7 +51,6 @@ Capybara::Webkit.configure do |config|
    driver.browser.url_blacklist = %w(
    https://fonts.googleapis.com/css?family=Oswald|Raleway
    https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css
-   https://fonts.googleapis.com/css?family=Oswald%7CRaleway
    )
    driver
  end
