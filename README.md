@@ -3,7 +3,7 @@
 ![Coverage Status](https://coveralls.io/repos/kbedell/gameshelf/badge.png)
 
 # Gameshelf
-## Heroku Link
+## Heroku Demo Site Link
 [Heroku Link](https://quiet-refuge-93160.herokuapp.com/users/sign_in)
 
 ## Amazon Alexa Skill
@@ -38,7 +38,13 @@ This application assumes the following:
 5. Run `rake db:create` in the terminal
 6. Run `rake db:migrate` in the terminal
 7. Run `NPM start` in the terminal
-8. Run `rails s` in the terminal
+8. Run `rails s` in a new tab in the terminal
+
+### If you are using your own Login with Amazon Information
+1. Navigate to the [Amazon Developer Console](https://developer.amazon.com)
+2. Navigate to the Login with Amazon section (Under Apps & Services)
+3. Add your site URL to Allowed origins
+4. Add your site's callback url (example: `https://YOURSITE.COM/users/auth/amazon/callback`) to allowed return urls
 
 ## Contributions
 If you liked this app enough to want to contribute, thank you! Please create a new branch, and issue a pull request. Please try to have tests for your code. If I the changes look good, then I will merge in the request.
