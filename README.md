@@ -10,7 +10,7 @@
 [Amazon Alexa Skill on GitHub](https://github.com/kbedell/gameshelf-alexaskill)
 
 ## Description
-Gameshelf is a Rails-based web application that allows users to receive back a random game based upon a list of games that they own, and the number of players they have. This application also has the ability to utilize a custom Amazon Alexa Skill (linked above), to allow users to use the Amazon Echo to ask for a random game.
+Gameshelf is a Rails-based web application that allows users to track the board games they own. In addition to its web interface, Gameshelf utilizes a custom Amazon Alexa Skill (linked above) that allows users to ask an Amazon Echo, Tap, or Dot for a random game based on the number of players they have.
 
 ## Functionality Breakdown
 * Anonymous users can view the site's privacy policy
